@@ -4,7 +4,7 @@ import { device } from "../../Styles/Medias/MediaQueries";
 export const StyledContainer = styled.div`
   width: 100%;
   height: 80vh;
-  background-image: url("/src/Assets/Jarrones/jarronMain.jpg");
+  background-image: url("/src/assets/Jarrones/jarronMain.jpg");
   display: flex;
   justify-content: center;
   align-items: center;

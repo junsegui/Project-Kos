@@ -12,7 +12,7 @@ export const ModalMenu = () => {
     <ContainerModal
       initial={{ translateX: -1000 }}
       animate={{ translateX: 0 }}
-      exit={{ translateX: 1000 }}
+      exit={{ translateX: -1000 }}
       transition={{ type: "spring", damping: 27 }}
     >
       <Closer

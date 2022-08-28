@@ -24,14 +24,14 @@ export const Navbar = () => {
             dispatch(toggleModal());
           }}
         />
-        <Logo src={kos} />
+        <Logo src={kos} alt="logo" />
         <FontAwesomeIcon icon={faBagShopping} color="black" />
         <AnimatePresence>{visible && <ModalMenu />}</AnimatePresence>
       </Burguer>
       <DesktopNavbar>
         <p>Shop</p>
         <p>contact</p>
-        <Logo src={kos} alt="" />
+        <Logo src={kos} alt="logo" />
         <p>account</p>
         <p>bag()</p>
       </DesktopNavbar>

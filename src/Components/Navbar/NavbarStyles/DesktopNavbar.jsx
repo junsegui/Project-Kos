@@ -5,7 +5,7 @@ import { device, size } from "../../../Styles/Medias/MediaQueries";
 export const DesktopNavbar = styled.div`
   width: 100%;
   display: flex;
-  height: 20%;
+  height: 20vh;
   justify-content: space-evenly;
   align-items: center;
   background-color: transparent;

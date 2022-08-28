@@ -5,10 +5,11 @@ import { device } from "../../../Styles/Medias/MediaQueries";
 export const Burguer = styled.nav`
   width: 100%;
   display: flex;
-  height: 20%;
+  height: 15vh;
   justify-content: space-around;
   align-items: center;
   background-color: transparent;
+
   @media (min-width: 770px) {
     display: none;
   }

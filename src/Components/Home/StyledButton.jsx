@@ -7,6 +7,7 @@ export const StyledButton = styled.p`
   transition: all 1s ease-in-out;
   border-bottom: 2px solid #4d4b4a;
   cursor: pointer;
+  font-weight: 600;
 
   &:hover {
     transform: scale(1.2);

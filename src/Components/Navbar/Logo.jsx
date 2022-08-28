@@ -9,4 +9,13 @@ export const Logo = styled.img`
     width: 20%;
     height: auto;
   }
+  @media ${device.tablet} {
+    width: 30%;
+  }
+  @media ${device.mobileL} {
+    width: 30%;
+  }
+  @media ${device.mobileM} {
+    width: 50%;
+  }
 `;

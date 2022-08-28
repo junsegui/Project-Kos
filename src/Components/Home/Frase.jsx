@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { device } from "../../Styles/Medias/MediaQueries";
 
 export const Frase = () => {
   return (
@@ -18,6 +19,7 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-top: 5%;
 `;
 
 const Parrafo = styled.p`
@@ -28,4 +30,15 @@ const Parrafo = styled.p`
   color: #4d4b4a;
   border-bottom: 2px solid #4d4b4a;
   padding-bottom: 5%;
+
+  @media ${device.tablet} {
+    font-size: 1.2rem;
+    padding-bottom: 2%;
+    width: 70%;
+  }
+  @media ${device.laptop} {
+    font-size: 1.5rem;
+    width: 40%;
+    padding-bottom: 1%;
+  }
 `;

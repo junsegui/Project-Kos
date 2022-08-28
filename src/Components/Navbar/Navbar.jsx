@@ -34,7 +34,7 @@ export const Navbar = () => {
       <DesktopNavbar>
         <p>Shop</p>
         <p>contact</p>
-
+        <img src="../../assets/Logo/Mi proyecto.png" alt="" />
         <p>account</p>
         <p>bag()</p>
       </DesktopNavbar>

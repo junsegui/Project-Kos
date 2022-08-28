@@ -9,8 +9,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { toggleModal } from "../../Redux/Modal/actionModal";
 import { AnimatePresence } from "framer-motion";
 import { DesktopNavbar } from "./NavbarStyles/DesktopNavbar";
-import kos from "../../assets/Logo/Mi proyecto.png";
-
+import Kos from "../../assets/Logo/Mi proyecto.png";
 export const Navbar = () => {
   const { visible } = useSelector((state) => state.modal);
   const dispatch = useDispatch();
@@ -25,14 +24,14 @@ export const Navbar = () => {
             dispatch(toggleModal());
           }}
         />
-        <Logo src={kos} alt="" />
+        <Logo src={Kos} alt="logo" />
         <FontAwesomeIcon icon={faBagShopping} color="black" />
         <AnimatePresence>{visible && <ModalMenu />}</AnimatePresence>
       </Burguer>
       <DesktopNavbar>
         <p>Shop</p>
         <p>contact</p>
-        <Logo src={kos} />
+        <Logo src={Kos} alt="logo" />
         <p>account</p>
         <p>bag()</p>
       </DesktopNavbar>

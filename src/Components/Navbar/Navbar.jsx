@@ -9,7 +9,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { toggleModal } from "../../Redux/Modal/actionModal";
 import { AnimatePresence } from "framer-motion";
 import { DesktopNavbar } from "./NavbarStyles/DesktopNavbar";
-
+import kos from "../../../public/assets/Logo/Mi proyecto.png";
 export const Navbar = () => {
   const { visible } = useSelector((state) => state.modal);
   const dispatch = useDispatch();
@@ -31,7 +31,7 @@ export const Navbar = () => {
       <DesktopNavbar>
         <p>Shop</p>
         <p>contact</p>
-        <img src={"../../../public/assets/Logo/Mi proyecto.png"} alt="" />
+        <img src={kos} alt="" />
         <p>account</p>
         <p>bag()</p>
       </DesktopNavbar>

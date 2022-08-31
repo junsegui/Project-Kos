@@ -21,6 +21,7 @@ const Contenedor = styled.div`
 
   flex-direction: column;
   align-items: center;
+  margin-right: 3%;
 `;
 const Image = styled.img`
   width: 90%;

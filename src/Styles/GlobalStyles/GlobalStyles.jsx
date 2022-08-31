@@ -5,6 +5,6 @@ export const GlobalStyles = createGlobalStyle`
         margin:0;
         padding:0;
         font-family: 'Albert Sans', sans-serif;
-        background-color:#C8BEB5;
+        background-color:#f2f2f2;
     }
 `;

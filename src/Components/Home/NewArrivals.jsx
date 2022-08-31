@@ -13,10 +13,6 @@ export const NewArrivals = () => {
         <Item />
         <Item />
         <Item />
-        <Item />
-        <Item />
-        <Item />
-        <Item />
       </ContArrival>
     </>
   );
@@ -40,9 +36,23 @@ const StyledP = styled.p`
 const ContArrival = styled.div`
   width: 80%;
   height: auto;
-  border: 1px solid black;
+
   margin-left: 10%;
   display: flex;
   align-items: center;
   overflow-x: scroll;
+  &::-webkit-scrollbar {
+    height: 6px;
+    width: 4px;
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--gray-bg);
+    border-radius: 5px;
+  }
+
+  &::-webkit-scrollbar:vertical {
+    display: none;
+  }
 `;

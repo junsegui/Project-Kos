@@ -8,7 +8,7 @@ export const DesktopNavbar = styled.div`
   height: 20vh;
   justify-content: space-evenly;
   align-items: center;
-  background-color: transparent;
+  background-color: #c8beb5;
 
   @media (max-width: 769px) {
     display: none;

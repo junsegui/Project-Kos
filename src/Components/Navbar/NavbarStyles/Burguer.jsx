@@ -8,7 +8,7 @@ export const Burguer = styled.nav`
   height: 15vh;
   justify-content: space-around;
   align-items: center;
-  background-color: transparent;
+  background-color: #c8beb5;
 
   @media (min-width: 770px) {
     display: none;

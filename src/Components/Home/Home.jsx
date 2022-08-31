@@ -1,6 +1,7 @@
 import React from "react";
 import { Frase } from "./Frase";
 import { NewArrivals } from "./NewArrivals";
+import { OurStory } from "./OurStory";
 import { AboutContainer } from "./PrimerParte";
 import { StyledButton } from "./StyledButton";
 import { StyledContainer } from "./StyledContainer";
@@ -18,6 +19,7 @@ export const Home = () => {
         <Frase />
         <NewArrivals />
       </AboutContainer>
+      <OurStory />
     </>
   );
 };

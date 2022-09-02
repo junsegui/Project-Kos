@@ -20,6 +20,8 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   padding-top: 5%;
+  margin-top: 5%;
+  margin-bottom: 5%;
 `;
 
 const Parrafo = styled.p`

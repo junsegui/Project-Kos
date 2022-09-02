@@ -1,4 +1,5 @@
 import React from "react";
+import { AllCollections } from "./AllCollections";
 import { Frase } from "./Frase";
 import { NewArrivals } from "./NewArrivals";
 import { OurStory } from "./OurStory";
@@ -20,6 +21,7 @@ export const Home = () => {
         <NewArrivals />
       </AboutContainer>
       <OurStory />
+      <AllCollections />
     </>
   );
 };

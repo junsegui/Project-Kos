@@ -7,6 +7,7 @@ export const AboutContainer = styled.section`
   background-color: #f2f2f2;
   display: flex;
   flex-direction: column;
+  margin-bottom: 0%;
   @media ${device.laptop} {
     margin-bottom: 5%;
   }

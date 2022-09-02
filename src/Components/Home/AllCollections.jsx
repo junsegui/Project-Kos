@@ -112,6 +112,9 @@ const DesktopCollection = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: row;
+  @media (max-width: 769px) {
+    display: none;
+  }
 `;
 
 const DesktopContainer = styled.div`

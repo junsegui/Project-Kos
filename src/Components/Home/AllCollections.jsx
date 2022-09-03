@@ -9,24 +9,20 @@ export const AllCollections = () => {
     <>
       <MobileCollection>
         <StyledP>all collections</StyledP>
-        <ItemContainer>
-          <CollectionItem>
-            <Image src={Alce} />
-            <Category>Decoration</Category>
-          </CollectionItem>
-          <CollectionItem>
-            <Image src={Alce} />
-            <Category>Decoration</Category>
-          </CollectionItem>
-          <CollectionItem>
-            <Image src={Alce} />
-            <Category>Decoration</Category>
-          </CollectionItem>
-          <CollectionItem>
-            <Image src={Alce} />
-            <Category>Decoration</Category>
-          </CollectionItem>
-        </ItemContainer>
+        <CollectionItem>
+          <Contenedor>
+            <Images src={JarronRaro} />
+            <Category>jarron</Category>
+          </Contenedor>
+          <Contenedor>
+            <Images src={JarronRaro} />
+            <Category>jarron</Category>
+          </Contenedor>
+          <Contenedor>
+            <Images src={JarronRaro} />
+            <Category>jarron</Category>
+          </Contenedor>
+        </CollectionItem>
       </MobileCollection>
       <DesktopCollection>
         <DesktopContainer>
@@ -46,7 +42,7 @@ export const AllCollections = () => {
 
 const MobileCollection = styled.div`
   width: 100%;
-  height: 40vh;
+  height: 35vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -58,13 +54,12 @@ const MobileCollection = styled.div`
 `;
 const ItemContainer = styled.div`
   width: 80%;
-  height: 100%;
+  height: auto;
+
+  margin-left: 10%;
   display: flex;
   align-items: center;
   overflow-x: scroll;
-  justify-content: space-between;
-  padding: 1%;
-
   &::-webkit-scrollbar {
     height: 6px;
     width: 4px;
@@ -89,21 +84,35 @@ const StyledP = styled.p`
   width: 80%;
 `;
 const CollectionItem = styled.div`
-  width: 45%;
-  height: 100%;
+  width: 80%;
+  height: auto;
   display: flex;
-  flex-direction: column;
-  margin-right: 5%;
+  align-items: center;
+  overflow-x: scroll;
+  &::-webkit-scrollbar {
+    height: 6px;
+    width: 4px;
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--gray-bg);
+    border-radius: 5px;
+  }
+
+  &::-webkit-scrollbar:vertical {
+    display: none;
+  }
 `;
 const Image = styled.img`
   border: 1px solid black;
   height: 90%;
 `;
 const Category = styled.p`
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: #4d4b4a;
   font-weight: 700;
-  height: auto;
+  margin-top: 0;
 `;
 const DesktopCollection = styled.div`
   width: 100%;
@@ -112,6 +121,7 @@ const DesktopCollection = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: row;
+
   @media (max-width: 769px) {
     display: none;
   }
@@ -156,4 +166,22 @@ const TwoDivImg1 = styled.div`
   width: 100%;
   height: 50%;
   background-image: url(${JarronRaro});
+`;
+
+const Contenedor = styled.div`
+  width: 40%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 5%;
+  margin-left: 1%;
+`;
+const Images = styled.img`
+  width: 100%;
+  height: 100%;
+  border: 1px solid black;
+  @media (min-width: 426px) {
+    height: 90%;
+  }
 `;

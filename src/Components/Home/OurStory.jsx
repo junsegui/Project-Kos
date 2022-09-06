@@ -4,33 +4,44 @@ import ourStory from "../../../public/assets/Jarrones/OurStory.jpg";
 import { device } from "../../Styles/Medias/MediaQueries";
 export const OurStory = () => {
   return (
-    <Cont>
-      <InnerCont>
-        <Half1>
-          <Img src={ourStory} />
-        </Half1>
-
-        <Half2>
-          <P>
-            what started as a hobby and a way to pass time, evolved into a real
-            passion.
-          </P>
-          <Link>our story</Link>
-        </Half2>
-      </InnerCont>
-    </Cont>
+    <>
+      <Cont>
+        <InnerCont>
+          <Half1>
+            <Img src={ourStory} />
+          </Half1>
+          <Half2>
+            <P>
+              what started as a hobby and a way to pass time, evolved into a
+              real passion.
+            </P>
+            <Link>our story</Link>
+          </Half2>
+        </InnerCont>
+      </Cont>
+      <MobileCont>
+        <ImageAbout>
+          <p>hola</p>
+        </ImageAbout>
+      </MobileCont>
+    </>
   );
 };
 const InnerCont = styled.div`
   width: 90%;
   height: 100%;
   display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 const Cont = styled.div`
   width: 100%;
   height: 50vh;
   display: flex;
   justify-content: center;
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const Half1 = styled.div`
@@ -72,12 +83,9 @@ const P = styled.p`
   @media ${device.tablet} {
     font-size: 1.2rem;
   }
-  @media ${device.laptop} {
-    font-size: 1.3rem;
+  @media (min-width: 770px) {
+    font-size: 1.8rem;
     width: 50%;
-  }
-  @media ${device.desktop} {
-    font-size: 1.4rem;
   }
 `;
 
@@ -94,10 +102,33 @@ const Link = styled.p`
   @media ${device.tablet} {
     font-size: 1.2rem;
   }
-  @media ${device.laptop} {
-    font-size: 1.3rem;
+  @media (min-width: 770px) {
+    font-size: 1.5rem;
+    width: 25%;
   }
-  @media ${device.desktop} {
-    font-size: 1.4rem;
+`;
+const MobileCont = styled.div`
+  width: 100%;
+  height: 35vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media (min-width: 771px) {
+    display: none;
+  }
+`;
+const ImageAbout = styled.div`
+  width: 70%;
+  height: 70%;
+  background-image: url(${ourStory});
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: 95%;
+  display: flex;
+  justify-content: end;
+  align-items: end;
+
+  @media ${device.tablet} {
+    background-position: 50% 60%;
   }
 `;

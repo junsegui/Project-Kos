@@ -25,16 +25,23 @@ export const AllCollections = () => {
         </CollectionItem>
       </MobileCollection>
       <DesktopCollection>
-        <DesktopContainer>
-          <BigImgCont>
-            <StyledName>decoration</StyledName>
-            <TwoDivs>
-              <TwoDivImg1>
-                <p>g</p>
-              </TwoDivImg1>
-            </TwoDivs>
-          </BigImgCont>
-        </DesktopContainer>
+        <BigImgContainer>
+          <BigImg>
+            <p>hola</p>
+          </BigImg>
+        </BigImgContainer>
+        <Divider>
+          <ContainerDivTwo>
+            <ImageItem>
+              <p>hola</p>
+            </ImageItem>
+          </ContainerDivTwo>
+          <ContainerDivTwo>
+            <ImageItem>
+              <p>hola</p>
+            </ImageItem>
+          </ContainerDivTwo>
+        </Divider>
       </DesktopCollection>
     </>
   );
@@ -116,56 +123,57 @@ const Category = styled.p`
 `;
 const DesktopCollection = styled.div`
   width: 100%;
-  height: 40vh;
-  display: flex;
+  height: 50vh;
+  display: grid;
+  grid-template-rows: 100%;
+  grid-template-columns: 50% 50%;
   justify-content: center;
   align-items: center;
-  flex-direction: row;
 
   @media (max-width: 769px) {
     display: none;
   }
 `;
 
-const DesktopContainer = styled.div`
-  width: 80%;
+const BigImgContainer = styled.div`
+  width: 100%;
   height: 100%;
-  border: 1px solid black;
   display: flex;
-  border: 1px solid black;
+  justify-content: center;
+  align-items: center;
+  grid-column: 1/2;
+`;
+const BigImg = styled.div`
+  width: 80%;
+  height: 90%;
+  background-image: url(${JarronRaro});
+  background-position: 50% 50%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: end;
+`;
+const Divider = styled.div`
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 50% 50%;
+  grid-template-columns: 100%;
+  justify-content: center;
+`;
+const ContainerDivTwo = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
   align-items: center;
 `;
-
-const BigImgCont = styled.div`
-  width: 45%;
-  height: 90%;
-  display: flex;
-  background-image: url(${Alce});
-  background-position: top 50% left 50%;
-  background-size: 100%;
-  background-repeat: no-repeat;
-  justify-content: right;
-  align-items: flex-end;
-  border: 1px solid black;
-`;
-const StyledName = styled.p`
-  font-size: 1.5rem;
-  margin-right: 5%;
-  color: #4d4b4a;
-  font-weight: 700;
-`;
-const TwoDivs = styled.div`
-  height: 90%;
-  width: 45%;
-  display: flex;
-  flex-direction: column;
-  border: 1px solid black;
-`;
-
-const TwoDivImg1 = styled.div`
-  width: 100%;
-  height: 50%;
+const ImageItem = styled.div`
+  width: 80%;
+  height: 80%;
   background-image: url(${JarronRaro});
+  display: flex;
+  align-items: end;
+  justify-content: flex-end;
 `;
 
 const Contenedor = styled.div`

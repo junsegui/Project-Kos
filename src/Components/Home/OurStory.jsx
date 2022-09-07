@@ -125,8 +125,8 @@ const ImageAbout = styled.div`
   background-repeat: no-repeat;
   background-size: 95%;
   display: flex;
-  justify-content: end;
-  align-items: end;
+  justify-content: center;
+  align-items: center;
 
   @media ${device.tablet} {
     background-position: 50% 60%;

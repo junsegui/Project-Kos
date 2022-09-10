@@ -5,32 +5,56 @@ import { Item } from "./Item";
 export const NewArrivals = () => {
   return (
     <>
-      <Container>
-        <StyledP>new arrivals</StyledP>
-      </Container>
-      <ContArrival>
-        <Item />
-        <Item />
-        <Item />
-        <Item />
-      </ContArrival>
+      <Center>
+        <Center80>
+          <Container>
+            <StyledP>new arrivals</StyledP>
+          </Container>
+
+          <ContArrival>
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+          </ContArrival>
+        </Center80>
+      </Center>
     </>
   );
 };
 
 const Container = styled.div`
-  width: 100%;
+  width: 80%;
   height: 50%;
   display: flex;
   flex-direction: column;
 `;
 
+const Center = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+
+  justify-content: center;
+`;
+const Center80 = styled.div`
+  width: 80%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+
+  flex-direction: column;
+`;
 const StyledP = styled.p`
   height: auto;
   margin-left: 10%;
   font-size: 1.4rem;
   color: #4d4b4a;
   font-weight: 700;
+
+  @media (min-width: 771px) {
+    font-size: 2rem;
+  }
 `;
 
 const ContArrival = styled.div`

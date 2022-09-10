@@ -2,11 +2,13 @@ import React from "react";
 import { Routes as ReactDomRoutes } from "react-router-dom";
 import { Route } from "react-router-dom";
 import { Home } from "../Home/Home";
+import { Shop } from "../Shop/Shop";
 
 export const Routes = () => {
   return (
     <ReactDomRoutes>
       <Route path="/" element={<Home />} />
+      <Route path="/shop" element={<Shop />} />
     </ReactDomRoutes>
   );
 };

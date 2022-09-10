@@ -21,6 +21,9 @@ export const Footer = () => {
           <FontAwesomeIcon icon={faInstagram} />
         </Brands>
       </MobileContainer>
+      <DesktopContainer>
+        <Line />
+      </DesktopContainer>
     </>
   );
 };
@@ -32,11 +35,14 @@ const MobileContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media (min-width: 770px) {
+    display: none;
+  }
 `;
 const Line = styled.div`
   width: 80%;
   height: 10%;
-  border-top: 2px solid #4d4b4a;
+  border-top: 3px solid #4d4b4a;
   margin-bottom: 5%;
 `;
 const Brands = styled.div`
@@ -45,4 +51,15 @@ const Brands = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 5%;
+`;
+
+const DesktopContainer = styled.div`
+  width: 100%;
+  height: 30vh;
+  display: flex;
+  justify-content: center;
+
+  @media (max-width: 769px) {
+    display: none;
+  }
 `;

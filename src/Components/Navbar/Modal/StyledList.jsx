@@ -1,14 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const StyledList = () => {
   return (
     <Ul>
-      <Li>shop</Li>
+      <Link to="/">Home</Link>
+      <Link to="/shop">Shop</Link>
 
       <Li>contact</Li>
       <Li>account</Li>
-      <Li>bag()</Li>
     </Ul>
   );
 };

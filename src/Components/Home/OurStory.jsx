@@ -6,18 +6,20 @@ export const OurStory = () => {
   return (
     <>
       <Cont>
-        <InnerCont>
-          <Half1>
-            <Img src={ourStory} />
-          </Half1>
-          <Half2>
-            <P>
-              what started as a hobby and a way to pass time, evolved into a
-              real passion.
-            </P>
-            <Link>our story</Link>
-          </Half2>
-        </InnerCont>
+        <Centrador>
+          <InnerCont>
+            <Half1>
+              <Img src={ourStory} />
+            </Half1>
+            <Half2>
+              <P>
+                what started as a hobby and a way to pass time, evolved into a
+                real passion.
+              </P>
+              <Link>our story</Link>
+            </Half2>
+          </InnerCont>
+        </Centrador>
       </Cont>
       <MobileCont>
         <ImageAbout>
@@ -28,7 +30,7 @@ export const OurStory = () => {
   );
 };
 const InnerCont = styled.div`
-  width: 90%;
+  width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -39,11 +41,15 @@ const Cont = styled.div`
   height: 50vh;
   display: flex;
   justify-content: center;
+  margin-bottom: 5%;
   @media (max-width: 768px) {
     display: none;
   }
 `;
-
+const Centrador = styled.div`
+  width: 80%;
+  height: 100%;
+`;
 const Half1 = styled.div`
   width: 50%;
   height: 100%;

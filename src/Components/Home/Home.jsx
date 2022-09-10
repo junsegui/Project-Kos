@@ -23,7 +23,6 @@ export const Home = () => {
       </AboutContainer>
       <OurStory />
       <AllCollections />
-      <Footer />
     </>
   );
 };

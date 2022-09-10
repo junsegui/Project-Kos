@@ -25,23 +25,25 @@ export const AllCollections = () => {
         </CollectionItem>
       </MobileCollection>
       <DesktopCollection>
-        <BigImgContainer>
-          <BigImg>
-            <p>hola</p>
-          </BigImg>
-        </BigImgContainer>
-        <Divider>
-          <ContainerDivTwo>
-            <ImageItem>
+        <Center>
+          <BigImgContainer>
+            <BigImg>
               <p>hola</p>
-            </ImageItem>
-          </ContainerDivTwo>
-          <ContainerDivTwo>
-            <ImageItem>
-              <p>hola</p>
-            </ImageItem>
-          </ContainerDivTwo>
-        </Divider>
+            </BigImg>
+          </BigImgContainer>
+          <Divider>
+            <ContainerDivTwo>
+              <ImageItem>
+                <p>hola</p>
+              </ImageItem>
+            </ContainerDivTwo>
+            <ContainerDivTwo>
+              <ImageItem>
+                <p>hola</p>
+              </ImageItem>
+            </ContainerDivTwo>
+          </Divider>
+        </Center>
       </DesktopCollection>
     </>
   );
@@ -59,29 +61,7 @@ const MobileCollection = styled.div`
     display: none;
   }
 `;
-const ItemContainer = styled.div`
-  width: 80%;
-  height: auto;
 
-  margin-left: 10%;
-  display: flex;
-  align-items: center;
-  overflow-x: scroll;
-  &::-webkit-scrollbar {
-    height: 6px;
-    width: 4px;
-    background: transparent;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: var(--gray-bg);
-    border-radius: 5px;
-  }
-
-  &::-webkit-scrollbar:vertical {
-    display: none;
-  }
-`;
 const StyledP = styled.p`
   color: #4d4b4a;
   font-size: 1.4rem;
@@ -111,10 +91,7 @@ const CollectionItem = styled.div`
     display: none;
   }
 `;
-const Image = styled.img`
-  border: 1px solid black;
-  height: 90%;
-`;
+
 const Category = styled.p`
   font-size: 1rem;
   color: #4d4b4a;
@@ -124,15 +101,24 @@ const Category = styled.p`
 const DesktopCollection = styled.div`
   width: 100%;
   height: 50vh;
-  display: grid;
-  grid-template-rows: 100%;
-  grid-template-columns: 50% 50%;
+  display: flex;
   justify-content: center;
   align-items: center;
 
   @media (max-width: 769px) {
     display: none;
   }
+`;
+
+const Center = styled.div`
+  width: 80%;
+  height: 100%;
+  display: flex;
+  display: grid;
+  grid-template-rows: 100%;
+  grid-template-columns: 50% 50%;
+  justify-content: center;
+  align-items: center;
 `;
 
 const BigImgContainer = styled.div`

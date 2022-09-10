@@ -25,10 +25,9 @@ export const Navbar = () => {
             dispatch(toggleModal());
           }}
         />
-        <Link to="/">
-          {" "}
+        <StyledLink to="/">
           <Logo src={kos} alt="logo" />
-        </Link>
+        </StyledLink>
         <FontAwesomeIcon icon={faBagShopping} color="black" />
         <AnimatePresence>{visible && <ModalMenu />}</AnimatePresence>
       </Burguer>
@@ -45,3 +44,10 @@ export const Navbar = () => {
     </>
   );
 };
+
+const StyledLink = styled(Link)`
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;

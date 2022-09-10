@@ -24,7 +24,7 @@ export const NewArrivals = () => {
 };
 
 const Container = styled.div`
-  width: 80%;
+  width: 90%;
   height: 50%;
   display: flex;
   flex-direction: column;
@@ -38,7 +38,7 @@ const Center = styled.div`
   justify-content: center;
 `;
 const Center80 = styled.div`
-  width: 80%;
+  width: 90%;
   height: 100%;
   display: flex;
   justify-content: center;

@@ -10,6 +10,7 @@ import { toggleModal } from "../../Redux/Modal/actionModal";
 import { AnimatePresence } from "framer-motion";
 import { DesktopNavbar } from "./NavbarStyles/DesktopNavbar";
 import kos from "../../../public/assets/Logo/Mi proyecto.png";
+import { Link } from "react-router-dom";
 export const Navbar = () => {
   const { visible } = useSelector((state) => state.modal);
   const dispatch = useDispatch();
@@ -24,14 +25,20 @@ export const Navbar = () => {
             dispatch(toggleModal());
           }}
         />
-        <Logo src={kos} alt="logo" />
+        <Link to="/">
+          {" "}
+          <Logo src={kos} alt="logo" />
+        </Link>
         <FontAwesomeIcon icon={faBagShopping} color="black" />
         <AnimatePresence>{visible && <ModalMenu />}</AnimatePresence>
       </Burguer>
       <DesktopNavbar>
-        <p>Shop</p>
+        <Link to="/shop">shop</Link>
         <p>contact</p>
-        <Logo src={kos} alt="logo" />
+        <Link to="/">
+          {" "}
+          <Logo src={kos} alt="logo" />
+        </Link>
         <p>account</p>
         <p>bag()</p>
       </DesktopNavbar>

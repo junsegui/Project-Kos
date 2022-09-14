@@ -50,5 +50,5 @@ const ItemContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  align-items: center;
+  align-items: end;
 `;

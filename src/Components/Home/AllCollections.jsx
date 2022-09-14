@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import Alce from "../../../public/assets/Decoration/alce.jpg";
+
 import JarronRaro from "../../../public/assets/Jarrones/jarronRaro2.jpg";
-import { device } from "../../Styles/Medias/MediaQueries";
 
 export const AllCollections = () => {
   return (

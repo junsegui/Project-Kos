@@ -1,5 +1,5 @@
 import React from "react";
-import { Footer } from "../Footer/Footer";
+
 import { AllCollections } from "./AllCollections";
 import { Frase } from "./Frase";
 import { NewArrivals } from "./NewArrivals";

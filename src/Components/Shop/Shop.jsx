@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { ShopItems } from "./ShopItems";
+import { ShopItemsDesktop } from "./ShopItemsDesktop";
 
 export const Shop = () => {
   return (
@@ -8,6 +9,9 @@ export const Shop = () => {
       <MobileShop>
         <ShopItems />
       </MobileShop>
+      <DesktopShop>
+        <ShopItemsDesktop />
+      </DesktopShop>
     </>
   );
 };
@@ -26,4 +30,10 @@ const MobileShop = styled.div`
 const DesktopShop = styled.div`
   width: 100%;
   height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media (max-width: 769px) {
+    display: none;
+  }
 `;

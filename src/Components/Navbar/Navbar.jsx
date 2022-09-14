@@ -34,10 +34,9 @@ export const Navbar = () => {
       <DesktopNavbar>
         <Link to="/shop">shop</Link>
         <p>contact</p>
-        <Link to="/">
-          {" "}
+        <StyledLink to="/">
           <Logo src={kos} alt="logo" />
-        </Link>
+        </StyledLink>
         <p>account</p>
         <p>bag()</p>
       </DesktopNavbar>

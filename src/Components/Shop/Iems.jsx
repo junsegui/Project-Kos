@@ -20,6 +20,10 @@ const Item = styled.div`
   display: flex;
   margin-bottom: 5%;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 5%;
+  margin-left: 5%;
 `;
 const IMG = styled.img`
   height: 50%;

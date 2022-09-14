@@ -15,16 +15,6 @@ export const ShopItems = () => {
         <Iems />
         <Iems />
       </ItemContainer>
-      <StyledTittle>algo</StyledTittle>
-      <ItemContainer>
-        <Iems />
-        <Iems />
-        <Iems />
-        <Iems />
-        <Iems />
-        <Iems />
-        <Iems />
-      </ItemContainer>
     </Container>
   );
 };
@@ -49,6 +39,5 @@ const ItemContainer = styled.div`
   height: auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: end;
+  justify-content: flex-start;
 `;

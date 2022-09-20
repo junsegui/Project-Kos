@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { DesktopItem } from "./DesktopItem";
-import { Iems } from "./Iems";
 
 export const ShopItemsDesktop = () => {
   return (

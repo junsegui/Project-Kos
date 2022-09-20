@@ -4,8 +4,8 @@ const INITIAL_STATE = {
   visible: false,
 };
 
-export const modalReducer = (state = INITIAL_STATE, Action) => {
-  const { type, payload } = Action;
+export const modalReducer = (state = INITIAL_STATE, action) => {
+  const { type, payload } = action;
   switch (type) {
     case TOGGLE_MODAL:
       return {

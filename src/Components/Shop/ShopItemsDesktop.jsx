@@ -1,8 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+import { Items, items } from "../../Data/Items";
 import { DesktopItem } from "./DesktopItem";
 
 export const ShopItemsDesktop = () => {
+  console.log(Items)
   return (
     <Container>
       <Tittle>our products</Tittle>
@@ -16,12 +18,15 @@ export const ShopItemsDesktop = () => {
         </CategoriesContainer>
         <CatContainers>
           <ItemContainer>
-            <DesktopItem />
-            <DesktopItem />
-            <DesktopItem />
-            <DesktopItem />
-            <DesktopItem />
-            <DesktopItem />
+           {
+            items.map(item=>{
+              <p key={item.id}>hola</p>
+              
+            })
+           }
+        
+        
+          
           </ItemContainer>
         </CatContainers>
       </ContainerTotal>

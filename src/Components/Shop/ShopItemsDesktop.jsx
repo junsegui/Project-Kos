@@ -1,10 +1,20 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { Items, items } from "../../Data/Items";
 import { DesktopItem } from "./DesktopItem";
 
+
+
 export const ShopItemsDesktop = () => {
+<<<<<<< HEAD
   console.log(Items);
+=======
+
+  const {items} = useSelector(state=>state.items)
+     
+
+>>>>>>> a9e28b29f1ed0977b5abd50bea48b9b46ca8049b
   return (
     <Container>
       <Tittle>our products</Tittle>
@@ -18,9 +28,20 @@ export const ShopItemsDesktop = () => {
         </CategoriesContainer>
         <CatContainers>
           <ItemContainer>
+<<<<<<< HEAD
             {items.map((item) => {
               <DesktopItem key={item.id} {...item} />;
             })}
+=======
+           {
+            items.map((i)=>{
+              <DesktopItem key={i.id} {...i}/>
+            })
+           }
+        
+        
+          
+>>>>>>> a9e28b29f1ed0977b5abd50bea48b9b46ca8049b
           </ItemContainer>
         </CatContainers>
       </ContainerTotal>

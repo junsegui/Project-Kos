@@ -37,15 +37,15 @@ export const Navbar = () => {
         <StyledLink to="/">
           <Logo src={kos} alt="logo" />
         </StyledLink>
-        <p>account</p>
-        <p>bag()</p>
+        <StyledLink to="/account">account</StyledLink>
+        <Link to="/bag">bag()</Link>
       </DesktopNavbar>
     </>
   );
 };
 
 const StyledLink = styled(Link)`
-  width: 60%;
+  width: 10%;
   display: flex;
   justify-content: center;
   align-items: center;

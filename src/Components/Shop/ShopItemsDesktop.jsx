@@ -8,9 +8,9 @@ import { DesktopItem } from "./DesktopItem";
 
 export const ShopItemsDesktop = () => {
 
+  const {items} = useSelector(state=>state.items)
+     
 
-      
-      console.log(items)
   return (
     <Container>
       <Tittle>our products</Tittle>
@@ -29,7 +29,6 @@ export const ShopItemsDesktop = () => {
               <DesktopItem key={i.id} {...i}/>
             })
            }
-           
         
         
           

@@ -4,7 +4,7 @@ import { Items, items } from "../../Data/Items";
 import { DesktopItem } from "./DesktopItem";
 
 export const ShopItemsDesktop = () => {
-  console.log(Items)
+  console.log(Items);
   return (
     <Container>
       <Tittle>our products</Tittle>
@@ -18,15 +18,9 @@ export const ShopItemsDesktop = () => {
         </CategoriesContainer>
         <CatContainers>
           <ItemContainer>
-           {
-            items.map(item=>{
-              <p key={item.id}>hola</p>
-              
-            })
-           }
-        
-        
-          
+            {items.map((item) => {
+              <DesktopItem key={item.id} {...item} />;
+            })}
           </ItemContainer>
         </CatContainers>
       </ContainerTotal>

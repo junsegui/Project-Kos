@@ -1,10 +1,16 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { Items, items } from "../../Data/Items";
 import { DesktopItem } from "./DesktopItem";
 
+
+
 export const ShopItemsDesktop = () => {
-  console.log(Items)
+
+
+      
+      console.log(items)
   return (
     <Container>
       <Tittle>our products</Tittle>
@@ -19,11 +25,11 @@ export const ShopItemsDesktop = () => {
         <CatContainers>
           <ItemContainer>
            {
-            items.map(item=>{
-              <p key={item.id}>hola</p>
-              
+            items.map((i)=>{
+              <DesktopItem key={i.id} {...i}/>
             })
            }
+           
         
         
           

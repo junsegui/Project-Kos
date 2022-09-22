@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import jarron from "../../../public/assets/Jarrones/jarronCircular.jpg";
 
-export const DesktopItem = ({tittle,img,price}) => {
+export const DesktopItem = () => {
   return (
     <Container>
       <IMG src={jarron} />

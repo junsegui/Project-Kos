@@ -8,7 +8,7 @@ export const StyledList = () => {
       <Link to="/">Home</Link>
       <Link to="/shop">Shop</Link>
       <Link to="/contact">contact</Link>
-      <Li>account</Li>
+      <Link to="/account">account</Link>
     </Ul>
   );
 };

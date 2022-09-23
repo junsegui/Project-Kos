@@ -1,10 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-export const DesktopItem = ({ img, price, tittle }) => {
+export const DesktopItem = ({ img, price, tittle,id }) => {
+    const navigate = useNavigate();
+    const hadleNavigate = () => {
+      navigate(`/shop/${id}`);
+    };
   return (
-    <Container>
+    
+    <Container onClick={hadleNavigate}>
       <IMG src={img} />
       <ContainerPrices>
         <p>{tittle}</p>

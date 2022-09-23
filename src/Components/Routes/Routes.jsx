@@ -6,7 +6,8 @@ import { Account } from "../Account/Account";
 import { Bag } from "../Bag/Bag";
 import { Contact } from "../Contact/Contact";
 import { Home } from "../Home/Home";
-import { Hola } from "../Shop/Hola";
+import { ProductItem } from "../Item/ProductItem";
+
 import { Shop } from "../Shop/Shop";
 
 export const Routes = () => {
@@ -19,7 +20,7 @@ export const Routes = () => {
       <Route path="/contact" element={<Contact />} />
       <Route path="/account" element={<Account />} />
       <Route path="/bag" element={<Bag />} />
-      <Route path="/shop/:shop" />
+      <Route path="/shop/:id" element={<ProductItem/>}/>
     </ReactDomRoutes>
   );
 };

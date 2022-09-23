@@ -1,14 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
-import jarron from "../../../public/assets/Jarrones/jarronCircular.jpg";
 
-export const DesktopItem = () => {
+export const DesktopItem = ({ img, price, tittle }) => {
   return (
     <Container>
-      <IMG src={jarron} />
+      <IMG src={img} />
       <ContainerPrices>
-        <p>hola</p>
-        <p>$40</p>
+        <p>{tittle}</p>
+        <p>{price}</p>
       </ContainerPrices>
     </Container>
   );

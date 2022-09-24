@@ -11,8 +11,6 @@ import { ProductItem } from "../Item/ProductItem";
 import { Shop } from "../Shop/Shop";
 
 export const Routes = () => {
-  const { items } = useSelector((state) => state.items);
-
   return (
     <ReactDomRoutes>
       <Route path="/" element={<Home />} />
@@ -20,7 +18,7 @@ export const Routes = () => {
       <Route path="/contact" element={<Contact />} />
       <Route path="/account" element={<Account />} />
       <Route path="/bag" element={<Bag />} />
-      <Route path="/shop/:id" element={<ProductItem/>}/>
+      <Route path="/shop/:id" element={<ProductItem />} />
     </ReactDomRoutes>
   );
 };

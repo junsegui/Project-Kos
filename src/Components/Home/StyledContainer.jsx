@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { device } from "../../Styles/Medias/MediaQueries";
-import background from "../../../public/assets/Jarrones/jarronMain.jpg";
+import background from "../../assets/Jarrones/jarronMain.jpg";
 
 export const StyledContainer = styled.div`
   width: 100%;

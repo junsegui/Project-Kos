@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import jarron from "../../../public/assets/Jarrones/jarronCircular.jpg";
+import jarron from "../../assets/Jarrones/jarronCircular.jpg";
 
 export const Iems = () => {
   return (

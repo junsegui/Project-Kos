@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import JarronRaro from "../../../public/assets/Jarrones/jarronRaro2.jpg";
+import JarronRaro from "../../assets/Jarrones/jarronRaro2.jpg";
 
 export const AllCollections = () => {
   return (

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import jarronCircular from "../../../public/assets/Jarrones/jarronCircular.jpg";
+import jarronCircular from "../../assets/Jarrones/jarronCircular.jpg";
 
 export const Item = () => {
   return (

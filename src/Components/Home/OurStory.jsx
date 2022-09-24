@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import ourStory from "../../../public/assets/Jarrones/OurStory.jpg";
+import ourStory from "../../assets/Jarrones/OurStory.jpg";
 import { device } from "../../Styles/Medias/MediaQueries";
 export const OurStory = () => {
   return (

@@ -2,13 +2,12 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-export const DesktopItem = ({ img, price, tittle,id }) => {
-    const navigate = useNavigate();
-    const hadleNavigate = () => {
-      navigate(`/shop/${id}`);
-    };
+export const DesktopItem = ({ img, price, tittle, id }) => {
+  const navigate = useNavigate();
+  const hadleNavigate = () => {
+    navigate(`/shop/${id}`);
+  };
   return (
-    
     <Container onClick={hadleNavigate}>
       <IMG src={img} />
       <ContainerPrices>
@@ -22,7 +21,7 @@ export const DesktopItem = ({ img, price, tittle,id }) => {
 const Container = styled.div`
   width: 30%;
   height: 50%;
-
+  cursor: pointer;
   margin-left: 1%;
   margin-top: 1%;
   display: flex;

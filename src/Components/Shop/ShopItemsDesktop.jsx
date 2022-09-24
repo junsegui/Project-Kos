@@ -1,10 +1,22 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
+import { Categories } from "./Categories";
 import { DesktopItem } from "./DesktopItem";
 
 export const ShopItemsDesktop = () => {
   const { items } = useSelector((state) => state.items);
+  const { categories, selectedCategorie } = useSelector(
+    (state) => state.categorie
+  );
+  const Items = items.reduce((acc, item) => {
+    if (!acc[item.category]) {
+      acc[item.category] = [];
+    }
+    acc[item.category] = [...acc[item.category], item];
+
+    return acc;
+  }, {});
 
   return (
     <Container>
@@ -12,16 +24,18 @@ export const ShopItemsDesktop = () => {
       <ContainerTotal>
         <CategoriesContainer>
           <UL>
-            <LI>decoration</LI>
-            <LI>jarrones</LI>
-            <LI>macetas</LI>
+            {categories.map((i) => (
+              <Categories key={i.id} {...i} />
+            ))}
           </UL>
         </CategoriesContainer>
         <CatContainers>
           <ItemContainer>
-            {items.map((i) => (
-              <DesktopItem key={i.id} {...i} />
-            ))}
+            {Object.entries(Items).map(([c, i]) =>
+              !selectedCategorie || c === selectedCategorie
+                ? i.map((i) => <DesktopItem key={i.id} {...i} />)
+                : []
+            )}
           </ItemContainer>
         </CatContainers>
       </ContainerTotal>

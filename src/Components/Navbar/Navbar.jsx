@@ -14,7 +14,7 @@ import { Link, NavLink } from "react-router-dom";
 export const Navbar = () => {
   const { visible } = useSelector((state) => state.modal);
   const dispatch = useDispatch();
-
+    const {items} = useSelector(state=>state.bag)
   return (
     <>
       <Burguer>
@@ -38,7 +38,7 @@ export const Navbar = () => {
           <Logo src={kos} alt="logo" />
         </StyledLogoLink>
         <StyledLink to="/account">account</StyledLink>
-        <StyledLink to="/bag">bag({0})</StyledLink>
+        <StyledLink to="/bag">bag({items.length})</StyledLink>
       </DesktopNavbar>
     </>
   );

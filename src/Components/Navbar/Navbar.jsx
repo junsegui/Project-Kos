@@ -18,17 +18,17 @@ export const Navbar = () => {
   return (
     <>
       <Burguer>
-        <FontAwesomeIcon
+        <StledFontAwesome
           icon={faBars}
           color="black"
           onClick={() => {
             dispatch(toggleModal());
           }}
         />
-        <StyledLink to="/">
+        <StyledLogoLink to="/">
           <Logo src={kos} alt="logo" />
-        </StyledLink>
-        <FontAwesomeIcon icon={faBagShopping} color="black" />
+        </StyledLogoLink>
+        <StledFontAwesome icon={faBagShopping} color="black" />
         <AnimatePresence>{visible && <ModalMenu />}</AnimatePresence>
       </Burguer>
       <DesktopNavbar>
@@ -65,4 +65,7 @@ justify-content:center;
 align-items:center;
 
 
+`
+const StledFontAwesome = styled(FontAwesomeIcon)`
+  width:20%;
 `

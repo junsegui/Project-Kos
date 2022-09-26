@@ -1,14 +1,25 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
+import { toggleModal } from "../../../Redux/Modal/actionModal";
 
 export const StyledList = () => {
+  const dispatch = useDispatch()
   return (
     <Ul>
-      <Link to="/">Home</Link>
-      <Link to="/shop">Shop</Link>
-      <Link to="/contact">contact</Link>
-      <Link to="/account">account</Link>
+      <StyledNavLink to="/"  onClick={() => {
+          dispatch(toggleModal());
+        }}>Home</StyledNavLink>
+      <StyledNavLink to="/shop"  onClick={() => {
+          dispatch(toggleModal());
+        }}>Shop</StyledNavLink>
+      <StyledNavLink to="/contact"  onClick={() => {
+          dispatch(toggleModal());
+        }}>contact</StyledNavLink>
+      <StyledNavLink to="/account"  onClick={() => {
+          dispatch(toggleModal());
+        }}>account</StyledNavLink>
     </Ul>
   );
 };
@@ -26,3 +37,14 @@ const Li = styled.li`
   font-size: 1.3rem;
   color: black;
 `;
+const StyledNavLink = styled(NavLink)`
+    font-size: 1.3rem;
+    width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size:1.2rem;
+  text-decoration:none;
+  color:#4d4b4a;
+  font-weight:700;
+`

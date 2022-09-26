@@ -11,8 +11,12 @@ export const Categories = ({ categorie }) => {
   );
 };
 const LI = styled.li`
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 700;
   color: #4d4d4d;
+  transition: all 1s ease-in-out;
   cursor: pointer;
+  &:hover {
+    transform: scale(1.2);
+  }
 `;

@@ -15,7 +15,7 @@ export const Home = () => {
       <StyledContainer>
         <StyledP>new</StyledP>
         <StyledP>collection</StyledP>
-        <StyledButton>shop</StyledButton>
+        <StyledButton to="/shop">shop</StyledButton>
       </StyledContainer>
       <AboutContainer>
         <Frase />

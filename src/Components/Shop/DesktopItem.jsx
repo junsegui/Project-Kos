@@ -12,7 +12,7 @@ export const DesktopItem = ({ img, price, tittle, id }) => {
       <IMG src={img} />
       <ContainerPrices>
         <p>{tittle}</p>
-        <p>{price}</p>
+        <p>${price}</p>
       </ContainerPrices>
     </Container>
   );
@@ -28,10 +28,14 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border:2px solid #4d4d4d;
+  border-radius:15px;
 `;
 const IMG = styled.img`
-  width: 80%;
+  width: 100%;
   height: 80%;
+  border-top-left-radius:15px;
+  border-top-right-radius:15px;
 `;
 const ContainerPrices = styled.div`
   width: 80%;

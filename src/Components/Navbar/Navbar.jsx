@@ -10,7 +10,7 @@ import { toggleModal } from "../../Redux/Modal/actionModal";
 import { AnimatePresence } from "framer-motion";
 import { DesktopNavbar } from "./NavbarStyles/DesktopNavbar";
 import kos from "../../assets/Logo/Mi proyecto.png";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 export const Navbar = () => {
   const { visible } = useSelector((state) => state.modal);
   const dispatch = useDispatch();
@@ -32,21 +32,37 @@ export const Navbar = () => {
         <AnimatePresence>{visible && <ModalMenu />}</AnimatePresence>
       </Burguer>
       <DesktopNavbar>
-        <Link to="/shop">shop</Link>
-        <Link to="/contact">contact</Link>
-        <StyledLink to="/">
+        <StyledLink to="/shop">shop</StyledLink>
+        <StyledLink to="/contact">our story</StyledLink>
+        <StyledLogoLink to="/">
           <Logo src={kos} alt="logo" />
-        </StyledLink>
+        </StyledLogoLink>
         <StyledLink to="/account">account</StyledLink>
-        <Link to="/bag">bag()</Link>
+        <StyledLink to="/bag">bag({0})</StyledLink>
       </DesktopNavbar>
     </>
   );
 };
 
-const StyledLink = styled(Link)`
-  width: 10%;
+const StyledLink = styled(NavLink)`
+  width: auto;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size:1.2rem;
+  text-decoration:none;
+  color:#4d4b4a;
+  transition: all 1s ease-in-out;
+  font-weight:700;
+  &:hover {
+    transform: scale(1.2);
+  }
 `;
+const StyledLogoLink = styled(NavLink)`
+width:auto;
+display:flex;
+justify-content:center;
+align-items:center;
+
+
+`

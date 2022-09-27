@@ -21,6 +21,7 @@ export const DesktopItem = ({ img, price, tittle, id }) => {
 const Container = styled.div`
   width: 30%;
   height: 50%;
+
   cursor: pointer;
   margin-left: 1%;
   margin-top: 1%;
@@ -28,14 +29,14 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border:2px solid #4d4d4d;
-  border-radius:15px;
+  border: 2px solid #4d4d4d;
+  border-radius: 15px;
 `;
 const IMG = styled.img`
   width: 100%;
   height: 80%;
-  border-top-left-radius:15px;
-  border-top-right-radius:15px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 `;
 const ContainerPrices = styled.div`
   width: 80%;

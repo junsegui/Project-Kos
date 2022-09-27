@@ -1,7 +1,8 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
+import { addItem } from "../../Redux/Bag/actionBag";
 
 export const ProductItem = () => {
   const { id } = useParams();
@@ -9,7 +10,8 @@ export const ProductItem = () => {
 
   const findedItem = items.find((item) => item.id === parseInt(id));
   console.log(findedItem);
-
+  const dispatch = useDispatch();
+  const { tittle, img, price, id: ID } = findedItem;
   return (
     <Container>
       <WidthContainer>
@@ -33,7 +35,11 @@ export const ProductItem = () => {
               <Numb>1</Numb>
               <But>+</But>
             </AddAndRest>
-            <AddToBag>add to bag</AddToBag>
+            <AddToBag
+              onClick={(e) => dispatch(addItem({ tittle, img, price, ID }))}
+            >
+              add to bag
+            </AddToBag>
           </AddAndButton>
         </InfoContainer>
       </WidthContainer>

@@ -1,25 +1,23 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { BagItemCard } from "./BagItemCard";
 import { DataItems } from "./DataItems";
 
 export const Bag = () => {
-  
+  const { items } = useSelector((state) => state.bag);
   return (
     <Container>
       <WidthContainer>
         <YourOrder>your order</YourOrder>
         <CC>
           <BagItemContainer>
-            <BagItemCard/>
-            <BagItemCard/>
-            <BagItemCard/>
-            <BagItemCard/>
-            <BagItemCard/>
-            <BagItemCard/>
+            {items.map((i) => (
+              <BagItemCard key={i.ID} {...i} />
+            ))}
           </BagItemContainer>
           <DataItemContianer>
-            <DataItems/>
+            <DataItems />
           </DataItemContianer>
         </CC>
       </WidthContainer>
@@ -38,7 +36,6 @@ const WidthContainer = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-
 `;
 const YourOrder = styled.p`
   font-size: 2rem;
@@ -46,23 +43,22 @@ const YourOrder = styled.p`
   font-weight: 700;
 `;
 const BagItemContainer = styled.div`
-  width:70%;
-  height:100%;
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:space-around;
-`
+  width: 70%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+`;
 const CC = styled.div`
-  width:100%;
-  height:auto;
-  display:flex;
-
-`
-const DataItemContianer=styled.div`
-  width:30%;
-  height:100%;
-  justify-content:center;
-  align-items:center;
-  display:flex;
-  flex-direction:column;
-`
+  width: 100%;
+  height: auto;
+  display: flex;
+`;
+const DataItemContianer = styled.div`
+  width: 30%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+`;

@@ -13,7 +13,7 @@ export const Bag = () => {
         <CC>
           <BagItemContainer>
             {items.map((i) => (
-              <BagItemCard key={i.ID} {...i} />
+              <BagItemCard key={i.id} {...i} />
             ))}
           </BagItemContainer>
           <DataItemContianer>

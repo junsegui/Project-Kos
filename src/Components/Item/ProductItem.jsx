@@ -9,20 +9,20 @@ export const ProductItem = () => {
   const { items } = useSelector((state) => state.items);
 
   const findedItem = items.find((item) => item.id === parseInt(id));
-  console.log(findedItem);
   const dispatch = useDispatch();
-  const { tittle, img, price, id: ID } = findedItem;
+  const { tittle, img, price, } = findedItem;
+  
   return (
     <Container>
       <WidthContainer>
         <ImageContainer>
-          <IMG src={findedItem.img} />
+          <IMG src={img} />
         </ImageContainer>
         <InfoContainer>
           <Back> back to </Back>
           <TittlePrice>
-            <Tittle>{findedItem.tittle}</Tittle>
-            <Price>${findedItem.price}</Price>
+            <Tittle>{tittle}</Tittle>
+            <Price>${price}</Price>
           </TittlePrice>
           <Description>
             rounded vase is a handmade with clay, inspired by the nordic nature
@@ -36,7 +36,7 @@ export const ProductItem = () => {
               <But>+</But>
             </AddAndRest>
             <AddToBag
-              onClick={(e) => dispatch(addItem({ tittle, img, price, ID }))}
+              onClick={(e) => dispatch(addItem({ tittle, img, price, id:parseInt(id) }))}
             >
               add to bag
             </AddToBag>

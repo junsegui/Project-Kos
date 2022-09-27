@@ -1,4 +1,5 @@
 import { ADD_ITEM, TOOGGLE_CART } from "./actionBag";
+import { addItemCart } from "./bagUtils";
 
 const INITIAL_STATE = {
   items: [],
@@ -17,7 +18,7 @@ export const bagReducer = (state = INITIAL_STATE, action) => {
     case ADD_ITEM:
       return {
         ...state,
-        items: [...state.items, payload],
+        items: addItemCart(state.items,payload),
       };
     default:
       return state;

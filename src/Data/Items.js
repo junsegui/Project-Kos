@@ -4,7 +4,7 @@ export const items = [
     img: "../assets/Decoration/buda2.jpg",
     tittle: "Buda 2",
     category: "decoration",
-    price: 10,
+    price: 34,
   },
   {
     id: 3,

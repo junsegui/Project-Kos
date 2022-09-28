@@ -1,9 +1,8 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
-import jarron from "../../assets/Decoration/alce.jpg";
-import { addItem } from "../../Redux/Bag/actionBag";
-export const BagItemCard = ({ img, price, tittle,quantity,id }) => {
+import { addItem, deleteItem } from "../../Redux/Bag/actionBag";
+export const BagItemCard = ({ img, price, tittle, quantity, id }) => {
   const dispatch = useDispatch();
   return (
     <Container>
@@ -11,12 +10,20 @@ export const BagItemCard = ({ img, price, tittle,quantity,id }) => {
       <DataContainer>
         <ItemName>{tittle}</ItemName>
         <QuantityContaier>
-          <StyledButton>-</StyledButton>
+          <StyledButton onClick={(e) => dispatch(deleteItem(id))}>
+            -
+          </StyledButton>
           <p>{quantity}</p>
-          <StyledButton onClick={e=>dispatch(addItem({img, price, tittle,quantity,id}))}>+</StyledButton>
+          <StyledButton
+            onClick={(e) =>
+              dispatch(addItem({ img, price, tittle, quantity, id }))
+            }
+          >
+            +
+          </StyledButton>
         </QuantityContaier>
         <Total>unit price: ${price}</Total>
-        <Total>Total: ${price}</Total>
+        <Total>Total: ${price * quantity}</Total>
       </DataContainer>
     </Container>
   );

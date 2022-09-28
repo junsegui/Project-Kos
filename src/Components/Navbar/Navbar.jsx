@@ -14,7 +14,8 @@ import { Link, NavLink } from "react-router-dom";
 export const Navbar = () => {
   const { visible } = useSelector((state) => state.modal);
   const dispatch = useDispatch();
-    const {items} = useSelector(state=>state.bag)
+  const { items } = useSelector((state) => state.bag);
+  const totalItems = items.reduce((acc, item) => (acc += item.quantity), 0);
   return (
     <>
       <Burguer>
@@ -38,7 +39,7 @@ export const Navbar = () => {
           <Logo src={kos} alt="logo" />
         </StyledLogoLink>
         <StyledLink to="/account">account</StyledLink>
-        <StyledLink to="/bag">bag({items.length})</StyledLink>
+        <StyledLink to="/bag">bag({totalItems})</StyledLink>
       </DesktopNavbar>
     </>
   );
@@ -49,23 +50,21 @@ const StyledLink = styled(NavLink)`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size:1.2rem;
-  text-decoration:none;
-  color:#4d4b4a;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: #4d4b4a;
   transition: all 1s ease-in-out;
-  font-weight:700;
+  font-weight: 700;
   &:hover {
     transform: scale(1.2);
   }
 `;
 const StyledLogoLink = styled(NavLink)`
-width:auto;
-display:flex;
-justify-content:center;
-align-items:center;
-
-
-`
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 const StledFontAwesome = styled(FontAwesomeIcon)`
-  width:20%;
-`
+  width: 20%;
+`;

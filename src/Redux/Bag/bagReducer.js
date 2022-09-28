@@ -1,5 +1,5 @@
-import { ADD_ITEM, TOOGGLE_CART } from "./actionBag";
-import { addItemCart } from "./bagUtils";
+import { ADD_ITEM, DELETE_ITEM, TOOGGLE_CART } from "./actionBag";
+import { addItemCart, deleteItemCart } from "./bagUtils";
 
 const INITIAL_STATE = {
   items: [],
@@ -18,8 +18,15 @@ export const bagReducer = (state = INITIAL_STATE, action) => {
     case ADD_ITEM:
       return {
         ...state,
-        items: addItemCart(state.items,payload),
+        items: addItemCart(state.items, payload),
       };
+    case DELETE_ITEM: {
+      return {
+        ...state,
+        items: deleteItemCart(state.items, payload),
+      };
+    }
+
     default:
       return state;
   }

@@ -9,6 +9,7 @@ import { Home } from "../Home/Home";
 import { ProductItem } from "../Item/ProductItem";
 
 import { Shop } from "../Shop/Shop";
+import { SignIn } from "../Sign In/SignIn";
 
 export const Routes = () => {
   return (
@@ -19,6 +20,7 @@ export const Routes = () => {
       <Route path="/account" element={<Account />} />
       <Route path="/bag" element={<Bag />} />
       <Route path="/shop/:id" element={<ProductItem />} />
+      <Route path="sign_in" element={<SignIn/>}/>
     </ReactDomRoutes>
   );
 };

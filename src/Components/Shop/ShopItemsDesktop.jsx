@@ -49,6 +49,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
 `;
+
 const Tittle = styled.p`
   font-size: 2rem;
   border-bottom: 3px solid #4d4b4a;
@@ -60,7 +61,7 @@ const Tittle = styled.p`
 const CategoriesContainer = styled.div`
   width: 20%;
   height: auto;
-
+ 
   display: flex;
 `;
 const UL = styled.ul`
@@ -95,6 +96,7 @@ const ItemContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
+margin-bottom:1%;
 `;
 const Item = styled.div`
   background-color: red;

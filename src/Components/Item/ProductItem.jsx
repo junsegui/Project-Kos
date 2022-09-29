@@ -1,16 +1,21 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import styled from "styled-components";
-import { addItem } from "../../Redux/Bag/actionBag";
+import { addItem, addItemN, decreaseQuantity, incrementQuantity } from "../../Redux/Bag/actionBag";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
+import { selectedCategorie } from "../../Redux/Categories/actionCategories";
+import { counter } from "@fortawesome/fontawesome-svg-core";
 
 export const ProductItem = () => {
   const { id } = useParams();
   const { items } = useSelector((state) => state.items);
-
+  const {selectedCategorie} = useSelector(state=>state.categorie)
   const findedItem = items.find((item) => item.id === parseInt(id));
   const dispatch = useDispatch();
   const { tittle, img, price, } = findedItem;
+  const {counter} = useSelector(state=>state.bag)
   
   return (
     <Container>
@@ -19,7 +24,7 @@ export const ProductItem = () => {
           <IMG src={img} />
         </ImageContainer>
         <InfoContainer>
-          <Back> back to </Back>
+          <Back to={-1}><FontAwesomeIcon icon={faChevronLeft}/>back to {selectedCategorie}</Back>
           <TittlePrice>
             <Tittle>{tittle}</Tittle>
             <Price>${price}</Price>
@@ -31,12 +36,12 @@ export const ProductItem = () => {
           </Description>
           <AddAndButton>
             <AddAndRest>
-              <But>-</But>
-              <Numb>1</Numb>
-              <But>+</But>
+              <But  onClick={(e)=>dispatch(decreaseQuantity())}>-</But>
+              <Numb>{counter}</Numb>
+              <But onClick={(e)=>dispatch(incrementQuantity())}>+</But>
             </AddAndRest>
             <AddToBag
-              onClick={(e) => dispatch(addItem({ tittle, img, price, id:parseInt(id) }))}
+              onClick={(e) => dispatch(addItemN({ tittle, img, price, id:parseInt(id) }))}
             >
               add to bag
             </AddToBag>
@@ -76,22 +81,41 @@ const InfoContainer = styled.div`
 `;
 const IMG = styled.img`
   width: 60%;
-  height: 100%;
+  height: 95%;
+  border-radius:15px;
 `;
-const Back = styled.p``;
+const Back = styled(Link)`
+  text-decoration:none;
+  color: #4d4d4d;
+  font-size:1.2rem;
+  font-weight:800;
+`;
 const TittlePrice = styled.div`
   width: 80%;
+  text-decoration:none;
+
   height: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid black;
+  border-bottom: 2px solid #4d4d4d;
 `;
-const Tittle = styled.p``;
-const Price = styled.p``;
+const Tittle = styled.p`
+  font-size:1.5rem;
+  color: #4d4d4d;
+  font-weight:800;
+`;
+const Price = styled.p`
+  font-size:1.4rem;
+  color: #4d4d4d;
+  font-weight:800;
+`;
 
 const Description = styled.p`
   width: 80%;
+  font-size:1.1rem;
+  color: #4d4d4d;
+
 `;
 const AddAndButton = styled.div`
   display: flex;
@@ -101,14 +125,31 @@ const AddAndButton = styled.div`
 const AddAndRest = styled.div`
   width: 40%;
   display: flex;
-  justify-content: space-around;
+  
 `;
 const But = styled.button`
   width: 33%;
+  padding: 5% 5%;
+
+  font-size: 1.1rem;
+  border-radius: 100px;
+  border: none;
+  background-color: #c8beb5;
+  font-weight: 500;
+  cursor: pointer;
 `;
 const Numb = styled.p`
   width: 33%;
+  text-align:center;
 `;
 const AddToBag = styled.button`
   width: 40%;
+
+  border-radius: 15px;
+  border: none;
+  background-color: #c8beb5;
+  color: #222120;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
 `;

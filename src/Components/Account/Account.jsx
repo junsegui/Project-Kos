@@ -4,60 +4,46 @@ import styled from 'styled-components'
 export const Account = () => {
   return (
     <Container>
-        <WidthContainer>
-            <Init >log in</Init>
-            <TextImput type="text" placeholder='username'/>
-            <TextImput type="password" placeholder='password'/>
-            <Button>submit</Button>
-            <p>forgot username or password?</p>
-            <p>enter with</p>
-            <p>don’t have an account? create it</p>
-     
-        </WidthContainer>
+        <Center80>
+            <StyledP>account</StyledP>
+            <ButtonsContainer>
+                <Paragraph>orders</Paragraph>
+                <Paragraph>log out</Paragraph>
+            </ButtonsContainer>
+        </Center80>
     </Container>
   )
 }
 
 
-
 const Container = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+align-items:center;
+  justify-content: center;
+`;
+const Center80 = styled.div`
+  width: 80%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+`;
+const StyledP = styled.p`
+  height: auto;
+
+  font-size: 1.4rem;
+  color: #4d4b4a;
+  font-weight: 700;
+`;
+const ButtonsContainer = styled.div`
     width:100%;
-    height:80vh;
+    height:20%;
     display:flex;
-    justify-content:center;
-    align-items:center;
-`
-const WidthContainer = styled.form`
-    width:60%;
-    height:100%;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-`
-
-const Init = styled.p`
-    font-size:2.5rem;
-    text-align:center;
-    color:#4d4b4a;
-    font-weight:800;
-`
-const TextImput = styled.input`
-        width:40%;
-        height:5%;
-        border:none;
-        border-radius:10px;
-        padding:1%;
-        margin-bottom:3%;
-        font-size:1.3rem;
-        color:#4d4b4a;
-
-`
-const Button = styled.button`
-    padding: 1% 2%;
-    border-radius:10px;
-    border:none;
-    cursor: pointer;
-    font-size:1.3rem;
-    color:#413d3c;
-    background-color:#C8BEB5;
-`
+    justify-content:space-between;
+`;
+const Paragraph = styled.p`
+    font-size:1.2rem;
+    color: #4d4d4d;
+`;

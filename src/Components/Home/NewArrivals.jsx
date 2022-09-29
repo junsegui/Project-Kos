@@ -1,8 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+import { newArrivals } from "../../Data/newArrivals";
 import { Item } from "./Item";
 
 export const NewArrivals = () => {
+  
   return (
     <>
       <Center>
@@ -12,10 +14,7 @@ export const NewArrivals = () => {
           </Container>
 
           <ContArrival>
-            <Item />
-            <Item />
-            <Item />
-            <Item />
+            {newArrivals.map(i=> <Item key={i.id} {...i}/>)}
           </ContArrival>
         </Center80>
       </Center>

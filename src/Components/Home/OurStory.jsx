@@ -47,8 +47,11 @@ const Cont = styled.div`
   }
 `;
 const Centrador = styled.div`
-  width: 90%;
+  width: 80%;
   height: 100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
 `;
 const Half1 = styled.div`
   width: 50%;
@@ -60,6 +63,7 @@ const Half1 = styled.div`
 const Img = styled.img`
   width: 80%;
   height: 50%;
+  border-radius:15px;
   @media ${device.tablet} {
     width: 80%;
     height: 70%;

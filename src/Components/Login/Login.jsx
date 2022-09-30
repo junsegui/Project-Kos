@@ -1,20 +1,45 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import { Formik as FormikContainer, Form as FormikForm } from "formik"
+import { LoginInput } from '../Formik/loginInput'
+
+import { loginInitialValues } from '../Formik/initialValues'
+import { loginValidationSchema } from '../Formik/validationSchema'
 
 export const Login = () => {
   return (
     <Container>
-        <WidthContainer>
-            <Init >log in</Init>
-            <TextImput type="text" placeholder='username'/>
-            <TextImput type="password" placeholder='password'/>
-            <Button>submit</Button>
-            <p>forgot username or password?</p>
-            <p>enter with</p>
-            <p>don’t have an account? <Link to="/sign_in">create it</Link></p>
-     
-        </WidthContainer>
+           <Init >log in</Init>
+        <Formik 
+                initialValues={loginInitialValues}
+                validationSchema={loginValidationSchema}
+                onSubmit={(values) => console.log(values)}>         
+            <Form>
+
+
+                <LoginInput  name="username"
+      
+            type="text"
+            id="username"
+            placeholder="username"
+  
+                />
+                <LoginInput
+            name="password"
+    
+            type="password"
+            id="password"
+            placeholder="password"
+          />
+  
+
+            <Button type='submit'>submit</Button>
+            </Form>
+        </Formik>
+
+          
+
     </Container>
   )
 }
@@ -25,8 +50,9 @@ const Container = styled.div`
     width:100%;
     height:80vh;
     display:flex;
-    justify-content:center;
+
     align-items:center;
+    flex-direction:column
 `
 const WidthContainer = styled.form`
     width:60%;
@@ -62,3 +88,17 @@ const Button = styled.button`
     color:#413d3c;
     background-color:#C8BEB5;
 `
+const Formik = styled(FormikContainer)`
+  width: 100%;
+  height: 100%;
+  display: flex;
+
+`;
+const Form = styled(FormikForm)`
+  width: 80%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+ align-items:center;
+
+`;

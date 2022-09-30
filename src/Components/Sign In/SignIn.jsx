@@ -2,17 +2,23 @@ import { Formik as FormikContainer, Form as FormikForm } from "formik";
 import React from "react";
 import styled from "styled-components";
 import { Input } from "../Formik/Input";
-import { checkoutInitialValues } from "../Formik/initialValues";
-import { checkoutValidationSchema } from "../Formik/validationSchema";
+import { signUpInitialValues } from "../Formik/initialValues";
+import { signUpValidationSchema } from "../Formik/validationSchema";
 
 export const SignIn = () => {
   return (
     <Container>
       <Sign_In>sign in</Sign_In>
       <Formik
+<<<<<<< HEAD
         initialValues={checkoutInitialValues}
         validationSchema={checkoutValidationSchema}
         onSubmit={(values) => console.log({ values })}
+=======
+        initialValues={signUpInitialValues}
+        validationSchema={signUpValidationSchema}
+        onSubmit={(values) => console.log(values)}
+>>>>>>> 99323e1abbd5f91356f5141c5ac833a12fc64743
       >
         <Form>
           <Input

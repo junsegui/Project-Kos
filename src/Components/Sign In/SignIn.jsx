@@ -12,7 +12,7 @@ export const SignIn = () => {
       <Formik
         initialValues={checkoutInitialValues}
         validationSchema={checkoutValidationSchema}
-        onSubmit={(values) => console.log(values)}
+        onSubmit={(values) => console.log({ values })}
       >
         <Form>
           <Input

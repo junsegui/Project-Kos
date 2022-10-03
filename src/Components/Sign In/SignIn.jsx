@@ -4,21 +4,29 @@ import styled from "styled-components";
 import { Input } from "../Formik/Input";
 import { signUpInitialValues } from "../Formik/initialValues";
 import { signUpValidationSchema } from "../Formik/validationSchema";
+import { registerUser } from "../../Firebase/fireBaseUtils";
 
 export const SignIn = () => {
+  const ERROR_CODES = {
+    EMAIL_IN_USE: "auth/emaill-already-in-use",
+  };
   return (
     <Container>
       <Sign_In>sign in</Sign_In>
       <Formik
-<<<<<<< HEAD
-        initialValues={checkoutInitialValues}
-        validationSchema={checkoutValidationSchema}
-        onSubmit={(values) => console.log({ values })}
-=======
         initialValues={signUpInitialValues}
         validationSchema={signUpValidationSchema}
-        onSubmit={(values) => console.log(values)}
->>>>>>> 99323e1abbd5f91356f5141c5ac833a12fc64743
+        onSubmit={async (val, { resetForm }) => {
+          const { email, password, username, address, age, phone } = val;
+          try {
+            const response = await registerUser(email, password);
+            resetForm();
+          } catch (error) {
+            if (error === ERROR_CODES.EMAIL_IN_USE) {
+              alert("email already used try another one please");
+            }
+          }
+        }}
       >
         <Form>
           <Input

@@ -7,6 +7,6 @@ export const signUpInitialValues = {
   address: "",
 };
 export const loginInitialValues = {
-  username:"",
-  password:""
-}
+  email: "",
+  password: "",
+};

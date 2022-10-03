@@ -14,6 +14,7 @@ export const Input = ({ children, name, htmlFor, type, id, placeholder }) => {
             placeholder={placeholder}
             {...field}
             isError={errors[field.name]}
+            autoComplete="on"
           />
           <ErrorMessage name={field.name}>
             {(message) => <ErrorMessageStyled>{message}</ErrorMessageStyled>}

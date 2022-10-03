@@ -1,14 +1,19 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
+import { auth } from "../../Firebase/fireBaseUtils"
+import { setUserNull } from '../../Redux/Login/actionLogin'
 
 export const Account = () => {
+  
+  const dispatch = useDispatch()
   return (
     <Container>
         <Center80>
             <StyledP>account</StyledP>
             <ButtonsContainer>
                 <Paragraph>orders</Paragraph>
-                <Paragraph>log out</Paragraph>
+                <Paragraph onClick={e=>auth.signOut().then(()=>dispatch(setUserNull()))}>log out</Paragraph>
             </ButtonsContainer>
         </Center80>
     </Container>

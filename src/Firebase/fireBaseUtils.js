@@ -20,11 +20,11 @@ export const Firestore = getFirestore(app);
 
 export const CreateUserProfile = async (userAuthenticated) => {
   const userReference = doc(Firestore, `users/${userAuthenticated.uid}`);
-
+  console.log({userReference})
   const snapshot = await getDoc(userReference);
-
+console.log({snapshot})
   if (!snapshot.exists()) {
-    const { email, photoURL, displayName } = userAuthenticated;
+    const { name, email, photoURL,displayName } = userAuthenticated;
     try {
       await setDoc(userReference, {
         name: displayName,
@@ -37,7 +37,7 @@ export const CreateUserProfile = async (userAuthenticated) => {
     }
   }
 
-  return snapshot;
+  return userReference;
 };
 
 //Auth
@@ -60,8 +60,7 @@ export const registerUser = async (email, password) => {
 
   return credentials;
 };
-export const signIn = (email, password) =>
-  signInWithEmailAndPassword(auth, email, password);
+export const signIn =(email,password)=>signInWithEmailAndPassword(auth,email,password);
 
 export const resetPassword = async (email) => {
   await sendPasswordResetEmail(auth, email, {
@@ -71,3 +70,4 @@ export const resetPassword = async (email) => {
 };
 const providerGoogle = new GoogleAuthProvider();
 export const signInGoogle = () => signInWithPopup(auth, providerGoogle);
+

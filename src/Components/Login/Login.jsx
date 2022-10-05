@@ -1,5 +1,4 @@
-import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { Formik as FormikContainer, Form as FormikForm } from "formik";
 import { LoginInput } from "../Formik/loginInput";
@@ -13,14 +12,20 @@ import {
   signInGoogle,
 } from "../../Firebase/fireBaseUtils";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { useRedirect } from "../../assets/Hooks/useRedirect";
 
 export const Login = () => {
   const ERROR_CODES = {
     WRONG_PASSWORD: "auth/wrong-password",
     NOT_FOUND_USER: "auth/user-not-found",
   };
-  const {navigate}=useNavigate();
-  const {user}=useSelector(state=>state.login)
+  
+  const {user}=useSelector(state=>state.login);
+  const {navigate} = useNavigate();
+
+
+  useRedirect("/account");
   return (
     <Container>
       <Init>log in</Init>

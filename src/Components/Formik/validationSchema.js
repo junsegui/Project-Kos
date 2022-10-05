@@ -14,3 +14,6 @@ export const loginValidationSchema = Yup.object({
     .min(6, "Mínimo de caracteres: 6")
     .required("Campo Requerido"),
 });
+export const checkOutValidationSchema=Yup.object({
+  
+})

@@ -5,12 +5,19 @@ import { Input } from "../Formik/Input";
 import { signUpInitialValues } from "../Formik/initialValues";
 import { signUpValidationSchema } from "../Formik/validationSchema";
 import { registerUser } from "../../Firebase/fireBaseUtils";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export const SignIn = () => {
   const ERROR_CODES = {
     EMAIL_IN_USE: "auth/emaill-already-in-use",
   };
+    const navigate = useNavigate()
+    const {user} =useSelector(state=>state.login)
+ 
   return (
+
     <Container>
       <Sign_In>sign in</Sign_In>
       <Formik

@@ -11,6 +11,8 @@ import {
 } from "firebase/auth";
 
 import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
+import { orderStatus } from "../assets/constant";
+import { v4 } from "uuid";
 
 //FireStore
 
@@ -20,24 +22,25 @@ export const Firestore = getFirestore(app);
 
 export const CreateUserProfile = async (userAuthenticated) => {
   const userReference = doc(Firestore, `users/${userAuthenticated.uid}`);
-  console.log({userReference})
+
   const snapshot = await getDoc(userReference);
-console.log({snapshot})
+
   if (!snapshot.exists()) {
-    const { name, email, photoURL,displayName } = userAuthenticated;
+    const { name, email, photoURL,displayName,} = userAuthenticated;
     try {
       await setDoc(userReference, {
         name: displayName,
         email,
         photoURL,
         createdAt: new Date(),
+        
       });
     } catch (error) {
       console.log(error);
     }
   }
 
-  return userReference;
+  return snapshot;
 };
 
 //Auth
@@ -71,3 +74,23 @@ export const resetPassword = async (email) => {
 const providerGoogle = new GoogleAuthProvider();
 export const signInGoogle = () => signInWithPopup(auth, providerGoogle);
 
+export const createOrderDocument=async (order)=>{
+  const orderReference = doc(Firestore,`orders/users/${order.user}/${order.email}`);
+  const snapshot = await getDoc(orderReference);
+
+  if(!snapshot.exists()){
+    try{
+      await setDoc(orderReference,{
+        ...order,
+        status:orderStatus.pending,
+        createdAt:new Date().toDateString(),
+        id:v4()
+
+      })
+    }catch(error){
+      console.log({error})
+    }
+   
+  }
+  return snapshot
+}

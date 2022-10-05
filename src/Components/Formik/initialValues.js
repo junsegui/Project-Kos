@@ -10,3 +10,6 @@ export const loginInitialValues = {
   email: "",
   password: "",
 };
+export const checkOutInitialValues={
+  
+}

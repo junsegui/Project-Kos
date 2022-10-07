@@ -1,11 +1,13 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { Formik as FormikContainer, Form as FormikForm, Form } from "formik";
 import { LoginInput } from "../Formik/loginInput";
 import { checkOutInitialValues } from "../Formik/initialValues";
 import { checkOutValidationSchema } from "../Formik/validationSchema";
 import { createOrderDocument } from "../../Firebase/fireBaseUtils";
+import { v4 } from "uuid";
+import { createOrder } from "../../Redux/Orders/actionOrder";
 
 export const DataItems = () => {
   const { items } = useSelector((state) => state.bag);
@@ -13,6 +15,7 @@ export const DataItems = () => {
     (sub, item) => (sub += item.price * item.quantity),
     0
   );
+  const dispatch = useDispatch()
 const {user} = useSelector(state=>state.login)
 const {items:bag} = useSelector(state=>state.bag)
   return (
@@ -25,9 +28,13 @@ const {items:bag} = useSelector(state=>state.bag)
             subtotal,
             bag,
             user:user.id,
-            email:user.email
+            email:user.email,
+            orderId:v4()
 
           }
+        
+          console.log(order)
+          dispatch(createOrder(order))
           await createOrderDocument(order);
         }} >order</Submit>
 

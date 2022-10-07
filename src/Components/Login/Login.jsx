@@ -11,7 +11,7 @@ import {
   signIn,
   signInGoogle,
 } from "../../Firebase/fireBaseUtils";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useRedirect } from "../../assets/Hooks/useRedirect";
 
@@ -23,6 +23,7 @@ export const Login = () => {
   
   const {user}=useSelector(state=>state.login);
   const {navigate} = useNavigate();
+const dispatch = useDispatch();
 
 
   useRedirect("/account");
@@ -39,6 +40,7 @@ export const Login = () => {
             const {user} = await signIn(email,password);
             console.log({user})
             CreateUserProfile(user)
+            
           }catch(error){
             const { code } = error;
             switch (code) {

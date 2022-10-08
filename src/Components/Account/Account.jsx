@@ -1,13 +1,22 @@
 import React from 'react'
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
 import { auth } from "../../Firebase/fireBaseUtils"
 import { setUserNull } from '../../Redux/Login/actionLogin'
+import { getOrder } from '../../Redux/Orders/actionOrder'
 import { Order } from './Order'
 
 export const Account = () => {
   const {order} = useSelector(state=>state.order)
-  const dispatch = useDispatch()
+  const {user} = useSelector(state=>state.login)
+  const dispatch = useDispatch();
+  
+  useEffect(()=>{
+    if(!order.length){
+      dispatch((getOrder(user?.id)))
+    }
+  },[user,dispatch])
   return (
     <Container>
         <Center80>

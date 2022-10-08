@@ -1,4 +1,4 @@
-import { ADD_ITEM, ADD_ITEM_N, DECREASE_QUANTITY, DELETE_ITEM, INCREMENT_QUANTITY, TOOGGLE_CART } from "./actionBag";
+import { ADD_ITEM, ADD_ITEM_N, CLEAR_CART, DECREASE_QUANTITY, DELETE_ITEM, INCREMENT_QUANTITY, TOOGGLE_CART } from "./actionBag";
 import { addItemCart, addItemCartB, deleteItemCart } from "./bagUtils";
 
 const INITIAL_STATE = {
@@ -25,6 +25,12 @@ export const bagReducer = (state = INITIAL_STATE, action) => {
         ...state,
         items: deleteItemCart(state.items, payload),
       };
+    }
+    case CLEAR_CART:{
+      return{
+        ...state,
+        items:[],
+      }
     }
     case INCREMENT_QUANTITY:
       return {

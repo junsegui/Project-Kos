@@ -23,7 +23,7 @@ export const getOrder=(userID)=>{
           try {
             await createOrderDocument(order);
             dispatch(getOrder(order.user));
-
+            return true 
           } catch (error) {
             dispatch({
               type: RECIEVE_ORDERS_FAILED,

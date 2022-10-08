@@ -8,6 +8,7 @@ import { checkOutValidationSchema } from "../Formik/validationSchema";
 import { createOrderDocument } from "../../Firebase/fireBaseUtils";
 import { v4 } from "uuid";
 import { createOrder } from "../../Redux/Orders/actionOrder";
+import { clearCart } from "../../Redux/Bag/actionBag";
 
 export const DataItems = () => {
   const { items } = useSelector((state) => state.bag);
@@ -32,11 +33,13 @@ const {items:bag} = useSelector(state=>state.bag)
             orderId:v4()
 
           }
-        
           console.log(order)
-          dispatch(createOrder(order))
+
           await createOrderDocument(order);
-        }} >order</Submit>
+          await dispatch(createOrder(order))
+          await dispatch(clearCart())
+        }}
+        disabled={!user} >order</Submit>
 
 
     </>

@@ -13,25 +13,26 @@ export const DataItems = () => {
     (sub, item) => (sub += item.price * item.quantity),
     0
   );
-const {user} = useSelector(state=>state.login)
-const {items:bag} = useSelector(state=>state.bag)
+  const { user } = useSelector((state) => state.login);
+  const { items: bag } = useSelector((state) => state.bag);
   return (
     <>
       <Description>your bag</Description>
       <TotalQuantity>total quantity: ${subtotal}</TotalQuantity>
-   
-        <Submit onClick={async e=>{
+
+      <Submit
+        onClick={async (e) => {
           const order = {
             subtotal,
             bag,
-            user:user.id,
-            email:user.email
-
-          }
+            user: user.id,
+            email: user.email,
+          };
           await createOrderDocument(order);
-        }} >order</Submit>
-
-
+        }}
+      >
+        order
+      </Submit>
     </>
   );
 };
@@ -58,6 +59,5 @@ const Submit = styled.button`
   cursor: pointer;
   &:hover {
     transform: scale(1.2);
-    
   }
 `;

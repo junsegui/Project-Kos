@@ -3,7 +3,8 @@ export const ADD_ITEM = "ADD_ITEM";
 export const INCREMENT_QUANTITY = "INCREMENT_QUANTITY";
 export const DELETE_ITEM = "DELETE_ITEM";
 export const ADD_ITEM_N = "AA_ITEM_N"
-export const DECREASE_QUANTITY = "DECREASE_QUANTITY"
+export const DECREASE_QUANTITY = "DECREASE_QUANTITY";
+export const CLEAR_CART = "CLEAR_CART"
 export const togglleVisibleCart = () => ({
   type: TOOGGLE_CART,
 });
@@ -24,4 +25,7 @@ export const decreaseQuantity=()=>({
 export const addItemN =(item)=>({
   type: ADD_ITEM_N,
   payload:item,
+})
+export const clearCart =()=>({
+  type:CLEAR_CART
 })

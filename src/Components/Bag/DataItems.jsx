@@ -1,11 +1,14 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { Formik as FormikContainer, Form as FormikForm, Form } from "formik";
 import { LoginInput } from "../Formik/loginInput";
 import { checkOutInitialValues } from "../Formik/initialValues";
 import { checkOutValidationSchema } from "../Formik/validationSchema";
 import { createOrderDocument } from "../../Firebase/fireBaseUtils";
+import { v4 } from "uuid";
+import { createOrder } from "../../Redux/Orders/actionOrder";
+import { clearCart } from "../../Redux/Bag/actionBag";
 
 export const DataItems = () => {
   const { items } = useSelector((state) => state.bag);
@@ -13,8 +16,14 @@ export const DataItems = () => {
     (sub, item) => (sub += item.price * item.quantity),
     0
   );
+<<<<<<< HEAD
   const { user } = useSelector((state) => state.login);
   const { items: bag } = useSelector((state) => state.bag);
+=======
+  const dispatch = useDispatch()
+const {user} = useSelector(state=>state.login)
+const {items:bag} = useSelector(state=>state.bag)
+>>>>>>> 07d803ee65f6f7387e393766d52fa5dc729f8c04
   return (
     <>
       <Description>your bag</Description>
@@ -25,6 +34,7 @@ export const DataItems = () => {
           const order = {
             subtotal,
             bag,
+<<<<<<< HEAD
             user: user.id,
             email: user.email,
           };
@@ -33,6 +43,22 @@ export const DataItems = () => {
       >
         order
       </Submit>
+=======
+            user:user.id,
+            email:user.email,
+            orderId:v4()
+
+          }
+          console.log(order)
+
+          await createOrderDocument(order);
+          await dispatch(createOrder(order))
+          await dispatch(clearCart())
+        }}
+        disabled={!user} >order</Submit>
+
+
+>>>>>>> 07d803ee65f6f7387e393766d52fa5dc729f8c04
     </>
   );
 };

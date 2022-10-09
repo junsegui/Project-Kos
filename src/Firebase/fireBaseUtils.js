@@ -10,7 +10,7 @@ import {
   GoogleAuthProvider,
 } from "firebase/auth";
 
-import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
+import { getFirestore, doc, getDoc, setDoc, collection, getDocs } from "firebase/firestore";
 import { orderStatus } from "../assets/constant";
 import { v4 } from "uuid";
 
@@ -75,7 +75,7 @@ const providerGoogle = new GoogleAuthProvider();
 export const signInGoogle = () => signInWithPopup(auth, providerGoogle);
 
 export const createOrderDocument=async (order)=>{
-  const orderReference = doc(Firestore,`orders/users/${order.user}/${order.email}`);
+  const orderReference = doc(Firestore,`orders/currentorders/${order.user}/${order.orderId}`);
   const snapshot = await getDoc(orderReference);
 
   if(!snapshot.exists()){
@@ -83,7 +83,7 @@ export const createOrderDocument=async (order)=>{
       await setDoc(orderReference,{
         ...order,
         status:orderStatus.pending,
-        createdAt:new Date().toDateString(),
+        createdAt:new Date(),
         id:v4()
 
       })
@@ -93,4 +93,11 @@ export const createOrderDocument=async (order)=>{
    
   }
   return snapshot
+}
+export const getFirebaseOrders=async(userID)=>{
+  const PATH = `orders/currentorders/${userID}`;
+  const referenceCollection = collection(Firestore,PATH);
+  const {docs} = await getDocs(referenceCollection);
+  const orders = docs.map(s=>s.data())
+  return orders
 }

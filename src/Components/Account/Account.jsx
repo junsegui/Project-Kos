@@ -1,12 +1,22 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
 import { auth } from "../../Firebase/fireBaseUtils"
 import { setUserNull } from '../../Redux/Login/actionLogin'
+import { getOrder } from '../../Redux/Orders/actionOrder'
+import { Order } from './Order'
 
 export const Account = () => {
+  const {order} = useSelector(state=>state.order)
+  const {user} = useSelector(state=>state.login)
+  const dispatch = useDispatch();
   
-  const dispatch = useDispatch()
+  useEffect(()=>{
+    if(!order.length){
+      dispatch((getOrder(user?.id)))
+    }
+  },[user,dispatch])
   return (
     <Container>
         <Center80>
@@ -15,6 +25,9 @@ export const Account = () => {
                 <Paragraph>orders</Paragraph>
                 <Paragraph onClick={e=>auth.signOut().then(()=>dispatch(setUserNull()))}>log out</Paragraph>
             </ButtonsContainer>
+          <OrderContainer>
+            {order.map(o=><Order key={order.id}{...o}/>)}
+          </OrderContainer>
         </Center80>
     </Container>
   )
@@ -23,14 +36,14 @@ export const Account = () => {
 
 const Container = styled.div`
   width: 100%;
-  height: 100%;
+  height: auto;
   display: flex;
 align-items:center;
   justify-content: center;
 `;
 const Center80 = styled.div`
   width: 80%;
-  height: 100%;
+  height: auto;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -52,3 +65,10 @@ const Paragraph = styled.p`
     font-size:1.2rem;
     color: #4d4d4d;
 `;
+const OrderContainer = styled.div`
+  width:100%;
+  height:auto;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-evenly;
+`

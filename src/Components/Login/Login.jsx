@@ -11,7 +11,7 @@ import {
   signInGoogle,
 } from "../../Firebase/fireBaseUtils";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useRedirect } from "../../assets/Hooks/useRedirect";
 
 export const Login = () => {
@@ -56,7 +56,7 @@ export const Login = () => {
           />
 
           <Button type="submit">submit</Button>
-          <p>or</p>
+          <Para>or</Para>
           <GoogleButton
             onClick={(e) => {
               const response = signInGoogle();
@@ -70,6 +70,9 @@ export const Login = () => {
           </GoogleButton>
         </Form>
       </Formik>
+      <Para>
+        don't have an account?<Nav to="/sign_in">create it</Nav>
+      </Para>
     </Container>
   );
 };
@@ -82,13 +85,6 @@ const Container = styled.div`
   align-items: center;
   flex-direction: column;
 `;
-const WidthContainer = styled.form`
-  width: 60%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
 
 const Init = styled.p`
   font-size: 2.5rem;
@@ -96,16 +92,7 @@ const Init = styled.p`
   color: #4d4b4a;
   font-weight: 800;
 `;
-const TextImput = styled.input`
-  width: 40%;
-  height: 5%;
-  border: none;
-  border-radius: 10px;
-  padding: 1%;
-  margin-bottom: 3%;
-  font-size: 1.3rem;
-  color: #4d4b4a;
-`;
+
 const Button = styled.button`
   padding: 1% 2%;
   border-radius: 10px;
@@ -114,6 +101,9 @@ const Button = styled.button`
   font-size: 1.3rem;
   color: #413d3c;
   background-color: #c8beb5;
+  @media (max-width: 768px) {
+    width: 40%;
+  }
 `;
 const Formik = styled(FormikContainer)`
   width: 100%;
@@ -131,5 +121,16 @@ const GoogleButton = styled.button`
   padding: 0.6% 3%;
   border-radius: 10px;
   border: 1px solid black;
+  cursor: pointer;
+  @media (max-width: 768px) {
+    width: 40%;
+  }
+`;
+const Para = styled.p`
+  color: #4d4d4d;
+`;
+const Nav = styled(NavLink)`
+  color: #4d4d4d;
+  font-weight: 800;
   cursor: pointer;
 `;

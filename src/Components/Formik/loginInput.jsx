@@ -24,11 +24,6 @@ export const LoginInput = ({ name, type, id, placeholder }) => {
   );
 };
 
-const Label = styled.label`
-  font-size: 1.5rem;
-  margin-right: 1%;
-  color: #4d4b4a;
-`;
 const InputStyled = styled.input`
   font-size: 1.2rem;
   border-radius: 8px;
@@ -52,6 +47,12 @@ const InputField = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 1%;
+    font-size: 1.3rem;
+    color: #4d4b4a;
+  }
 `;
 
 export const ErrorMessageStyled = styled.p`

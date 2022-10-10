@@ -10,7 +10,14 @@ import {
   GoogleAuthProvider,
 } from "firebase/auth";
 
-import { getFirestore, doc, getDoc, setDoc, collection, getDocs } from "firebase/firestore";
+import {
+  getFirestore,
+  doc,
+  getDoc,
+  setDoc,
+  collection,
+  getDocs,
+} from "firebase/firestore";
 import { orderStatus } from "../assets/constant";
 import { v4 } from "uuid";
 
@@ -26,14 +33,13 @@ export const CreateUserProfile = async (userAuthenticated) => {
   const snapshot = await getDoc(userReference);
 
   if (!snapshot.exists()) {
-    const { name, email, photoURL,displayName,} = userAuthenticated;
+    const { name, email, photoURL, displayName } = userAuthenticated;
     try {
       await setDoc(userReference, {
         name: displayName,
         email,
         photoURL,
         createdAt: new Date(),
-        
       });
     } catch (error) {
       console.log(error);
@@ -63,7 +69,8 @@ export const registerUser = async (email, password) => {
 
   return credentials;
 };
-export const signIn =(email,password)=>signInWithEmailAndPassword(auth,email,password);
+export const signIn = (email, password) =>
+  signInWithEmailAndPassword(auth, email, password);
 
 export const resetPassword = async (email) => {
   await sendPasswordResetEmail(auth, email, {
@@ -74,30 +81,31 @@ export const resetPassword = async (email) => {
 const providerGoogle = new GoogleAuthProvider();
 export const signInGoogle = () => signInWithPopup(auth, providerGoogle);
 
-export const createOrderDocument=async (order)=>{
-  const orderReference = doc(Firestore,`orders/currentorders/${order.user}/${order.orderId}`);
+export const createOrderDocument = async (order) => {
+  const orderReference = doc(
+    Firestore,
+    `orders/currentorders/${order.user}/${order.orderId}`
+  );
   const snapshot = await getDoc(orderReference);
 
-  if(!snapshot.exists()){
-    try{
-      await setDoc(orderReference,{
+  if (!snapshot.exists()) {
+    try {
+      await setDoc(orderReference, {
         ...order,
-        status:orderStatus.pending,
-        createdAt:new Date(),
-        id:v4()
-
-      })
-    }catch(error){
-      console.log({error})
+        status: orderStatus.pending,
+        createdAt: new Date(),
+        id: v4(),
+      });
+    } catch (error) {
+      console.log({ error });
     }
-   
   }
-  return snapshot
-}
-export const getFirebaseOrders=async(userID)=>{
+  return snapshot;
+};
+export const getFirebaseOrders = async (userID) => {
   const PATH = `orders/currentorders/${userID}`;
-  const referenceCollection = collection(Firestore,PATH);
-  const {docs} = await getDocs(referenceCollection);
-  const orders = docs.map(s=>s.data())
-  return orders
-}
+  const referenceCollection = collection(Firestore, PATH);
+  const { docs } = await getDocs(referenceCollection);
+  const orders = docs.map((s) => s.data());
+  return orders;
+};

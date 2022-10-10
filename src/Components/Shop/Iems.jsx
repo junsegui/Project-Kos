@@ -1,14 +1,18 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import jarron from "../../assets/Jarrones/jarronCircular.jpg";
 
-export const Iems = () => {
+export const Iems = ({ img, tittle, price, id }) => {
+  const navigate = useNavigate();
+  const hadleNavigate = () => {
+    navigate(`/shop/${id}`);
+  };
   return (
-    <Item>
-      <IMG src={jarron} />
+    <Item onClick={hadleNavigate}>
+      <IMG src={img} />
       <PriceContainer>
-        <p>vesel</p>
-        <p>$30</p>
+        <StyledP>{tittle}</StyledP>
+        <StyledP>${price}</StyledP>
       </PriceContainer>
     </Item>
   );
@@ -29,6 +33,7 @@ const IMG = styled.img`
   height: 50%;
   width: 100%;
   border: 1px solid #4d4b4a;
+  border-radius: 10%;
 `;
 const PriceContainer = styled.div`
   width: 100%;
@@ -36,4 +41,8 @@ const PriceContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+`;
+const StyledP = styled.p`
+  font-size: 0.8rem;
+  color: #4d4b4a;
 `;

@@ -2,8 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-
-export const Item = ({img,price,id,tittle}) => {
+export const Item = ({ img, price, id, tittle }) => {
   const navigate = useNavigate();
   const hadleNavigate = () => {
     navigate(`/shop/${id}`);
@@ -26,13 +25,18 @@ const Contenedor = styled.div`
   cursor: pointer;
   flex-direction: column;
   align-items: center;
-  margin-right: 0;
+  @media (max-width: 768px) {
+    margin-left: 5px;
+  }
 `;
 const Image = styled.img`
   width: 90%;
   height: auto;
   border: 1px solid black;
-  border-radius:15px
+  border-radius: 15px;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 const PriceCont = styled.div`
   width: 90%;
@@ -40,4 +44,8 @@ const PriceCont = styled.div`
   display: flex;
   justify-content: space-between;
 `;
-const StyledP = styled.p``;
+const StyledP = styled.p`
+  @media (max-width: 768px) {
+    font-size: 0rem;
+  }
+`;

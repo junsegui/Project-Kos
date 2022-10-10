@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import ourStory from "../../assets/Jarrones/OurStory.jpg";
 import { device } from "../../Styles/Medias/MediaQueries";
@@ -22,7 +23,7 @@ export const OurStory = () => {
         </Centrador>
       </Cont>
       <MobileCont>
-        <ImageAbout>
+        <ImageAbout to="/contact">
           <p>hola</p>
         </ImageAbout>
       </MobileCont>
@@ -49,9 +50,9 @@ const Cont = styled.div`
 const Centrador = styled.div`
   width: 80%;
   height: 100%;
-  display:flex;
-  justify-content:center;
-  align-items:center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 const Half1 = styled.div`
   width: 50%;
@@ -63,7 +64,7 @@ const Half1 = styled.div`
 const Img = styled.img`
   width: 80%;
   height: 50%;
-  border-radius:15px;
+  border-radius: 15px;
   @media ${device.tablet} {
     width: 80%;
     height: 70%;
@@ -127,7 +128,7 @@ const MobileCont = styled.div`
     display: none;
   }
 `;
-const ImageAbout = styled.div`
+const ImageAbout = styled(NavLink)`
   width: 70%;
   height: 70%;
   background-image: url(${ourStory});
@@ -136,7 +137,9 @@ const ImageAbout = styled.div`
   background-size: 95%;
   display: flex;
   justify-content: center;
+  border-radius: 10px;
   align-items: center;
+  text-decoration: none;
 
   @media ${device.tablet} {
     background-position: 50% 60%;

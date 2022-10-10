@@ -6,7 +6,6 @@ import { LoginInput } from "../Formik/loginInput";
 import { loginInitialValues } from "../Formik/initialValues";
 import { loginValidationSchema } from "../Formik/validationSchema";
 import {
-  
   CreateUserProfile,
   signIn,
   signInGoogle,
@@ -20,11 +19,6 @@ export const Login = () => {
     WRONG_PASSWORD: "auth/wrong-password",
     NOT_FOUND_USER: "auth/user-not-found",
   };
-  
-  const {user}=useSelector(state=>state.login);
-  const {navigate} = useNavigate();
-const dispatch = useDispatch();
-
 
   useRedirect("/account");
   return (
@@ -33,28 +27,24 @@ const dispatch = useDispatch();
       <Formik
         initialValues={loginInitialValues}
         validationSchema={loginValidationSchema}
-        onSubmit={async res=>{
-          const {email,password}=res;
-  
-          try{
-            const {user} = await signIn(email,password);
-            console.log({user})
-            CreateUserProfile(user)
-            
-          }catch(error){
+        onSubmit={async (res) => {
+          const { email, password } = res;
+
+          try {
+            const { user } = await signIn(email, password);
+            CreateUserProfile(user);
+          } catch (error) {
             const { code } = error;
             switch (code) {
               case ERROR_CODES.WRONG_PASSWORD:
-                return alert('Contraseña incorrecta');
+                return alert("Contraseña incorrecta");
               case ERROR_CODES.NOT_FOUND_USER:
-                return alert('Usuario no encontrado');
+                return alert("Usuario no encontrado");
               default:
-                return alert('Error interno del servidor');
+                return alert("Error interno del servidor");
             }
           }
-        }
-        
-        }
+        }}
       >
         <Form>
           <LoginInput name="email" type="text" id="email" placeholder="email" />

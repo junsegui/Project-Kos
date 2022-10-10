@@ -2,7 +2,12 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import styled from "styled-components";
-import { addItem, addItemN, decreaseQuantity, incrementQuantity } from "../../Redux/Bag/actionBag";
+import {
+  addItem,
+  addItemN,
+  decreaseQuantity,
+  incrementQuantity,
+} from "../../Redux/Bag/actionBag";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { selectedCategorie } from "../../Redux/Categories/actionCategories";
@@ -11,20 +16,59 @@ import { counter } from "@fortawesome/fontawesome-svg-core";
 export const ProductItem = () => {
   const { id } = useParams();
   const { items } = useSelector((state) => state.items);
-  const {selectedCategorie} = useSelector(state=>state.categorie)
+  const { selectedCategorie } = useSelector((state) => state.categorie);
   const findedItem = items.find((item) => item.id === parseInt(id));
   const dispatch = useDispatch();
-  const { tittle, img, price, } = findedItem;
-  const {counter} = useSelector(state=>state.bag)
-  
+  const { tittle, img, price } = findedItem;
+  const { counter } = useSelector((state) => state.bag);
+
   return (
-    <Container>
-      <WidthContainer>
-        <ImageContainer>
-          <IMG src={img} />
-        </ImageContainer>
-        <InfoContainer>
-          <Back to={-1}><FontAwesomeIcon icon={faChevronLeft}/>back to {selectedCategorie}</Back>
+    <>
+      <Container>
+        <WidthContainer>
+          <ImageContainer>
+            <IMG src={img} />
+          </ImageContainer>
+          <InfoContainer>
+            <Back to={-1}>
+              <FontAwesomeIcon icon={faChevronLeft} />
+              back to {selectedCategorie}
+            </Back>
+            <TittlePrice>
+              <Tittle>{tittle}</Tittle>
+              <Price>${price}</Price>
+            </TittlePrice>
+            <Description>
+              rounded vase is a handmade with clay, inspired by the nordic
+              nature and color tones. due to their handmade nature, each bowl is
+              unque in shape and size.
+            </Description>
+            <AddAndButton>
+              <AddAndRest>
+                <But onClick={(e) => dispatch(decreaseQuantity())}>-</But>
+                <Numb>{counter}</Numb>
+                <But onClick={(e) => dispatch(incrementQuantity())}>+</But>
+              </AddAndRest>
+              <AddToBag
+                onClick={(e) =>
+                  dispatch(addItemN({ tittle, img, price, id: parseInt(id) }))
+                }
+              >
+                add to bag
+              </AddToBag>
+            </AddAndButton>
+          </InfoContainer>
+        </WidthContainer>
+      </Container>
+      <MobileContainer>
+        <WidthContainer>
+          <Back to={-1}>
+            <FontAwesomeIcon icon={faChevronLeft} />
+            back to {selectedCategorie}
+          </Back>
+          <ImageContainer>
+            <IMG src={img} />
+          </ImageContainer>
           <TittlePrice>
             <Tittle>{tittle}</Tittle>
             <Price>${price}</Price>
@@ -36,19 +80,21 @@ export const ProductItem = () => {
           </Description>
           <AddAndButton>
             <AddAndRest>
-              <But  onClick={(e)=>dispatch(decreaseQuantity())}>-</But>
+              <But onClick={(e) => dispatch(decreaseQuantity())}>-</But>
               <Numb>{counter}</Numb>
-              <But onClick={(e)=>dispatch(incrementQuantity())}>+</But>
+              <But onClick={(e) => dispatch(incrementQuantity())}>+</But>
             </AddAndRest>
             <AddToBag
-              onClick={(e) => dispatch(addItemN({ tittle, img, price, id:parseInt(id) }))}
+              onClick={(e) =>
+                dispatch(addItemN({ tittle, img, price, id: parseInt(id) }))
+              }
             >
               add to bag
             </AddToBag>
           </AddAndButton>
-        </InfoContainer>
-      </WidthContainer>
-    </Container>
+        </WidthContainer>
+      </MobileContainer>
+    </>
   );
 };
 
@@ -57,6 +103,9 @@ const Container = styled.div`
   height: 80vh;
   margin-bottom: 2%;
   margin-top: 1%;
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 const WidthContainer = styled.div`
   height: 100%;
@@ -64,12 +113,21 @@ const WidthContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
 `;
 const ImageContainer = styled.div`
   width: 65%;
   height: 100%;
   display: flex;
   justify-content: right;
+  @media (max-width: 768px) {
+    justify-content: center;
+    width: 100%;
+    height: 50%;
+  }
 `;
 const InfoContainer = styled.div`
   width: 40%;
@@ -82,40 +140,64 @@ const InfoContainer = styled.div`
 const IMG = styled.img`
   width: 60%;
   height: 95%;
-  border-radius:15px;
+  border-radius: 15px;
+  @media (max-width: 768px) {
+    width: 60%;
+    height: 100%;
+  }
+  @media (max-width: 320px) {
+    width: 80%;
+  }
 `;
 const Back = styled(Link)`
-  text-decoration:none;
+  text-decoration: none;
   color: #4d4d4d;
-  font-size:1.2rem;
-  font-weight:800;
+  font-size: 1.2rem;
+  font-weight: 800;
+  @media (max-width: 768px) {
+    display: flex;
+    justify-content: left;
+    width: 100%;
+    margin: 3% 0;
+  }
 `;
 const TittlePrice = styled.div`
   width: 80%;
-  text-decoration:none;
+  text-decoration: none;
 
   height: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 2px solid #4d4d4d;
+  @media (max-width: 768px) {
+    height: 10%;
+  }
 `;
 const Tittle = styled.p`
-  font-size:1.5rem;
+  font-size: 1.5rem;
   color: #4d4d4d;
-  font-weight:800;
+  font-weight: 800;
+  @media (max-width: 768px) {
+    font-size: 1.1rem;
+  }
 `;
 const Price = styled.p`
-  font-size:1.4rem;
+  font-size: 1.4rem;
   color: #4d4d4d;
-  font-weight:800;
+  font-weight: 800;
+  @media (max-width: 768px) {
+    font-size: 1.1rem;
+  }
 `;
 
 const Description = styled.p`
   width: 80%;
-  font-size:1.1rem;
+  font-size: 1.1rem;
   color: #4d4d4d;
-
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 `;
 const AddAndButton = styled.div`
   display: flex;
@@ -125,7 +207,6 @@ const AddAndButton = styled.div`
 const AddAndRest = styled.div`
   width: 40%;
   display: flex;
-  
 `;
 const But = styled.button`
   width: 33%;
@@ -137,10 +218,12 @@ const But = styled.button`
   background-color: #c8beb5;
   font-weight: 500;
   cursor: pointer;
+  @media (max-width: 768px) {
+  }
 `;
 const Numb = styled.p`
   width: 33%;
-  text-align:center;
+  text-align: center;
 `;
 const AddToBag = styled.button`
   width: 40%;
@@ -152,4 +235,11 @@ const AddToBag = styled.button`
   font-weight: 700;
   font-size: 1.1rem;
   cursor: pointer;
+`;
+const MobileContainer = styled.div`
+  width: 100%;
+  height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;

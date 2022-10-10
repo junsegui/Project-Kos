@@ -22,10 +22,15 @@ export const Routes = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/bag" element={<Bag />} />
       <Route path="/shop/:id" element={<ProductItem />} />
-      <Route path="sign_in" element={<SignIn/>}/>
-      <Route path="/account" element={<ProtectedRoute >
-          <Account/>
-      </ProtectedRoute>}/>
+      <Route path="sign_in" element={<SignIn />} />
+      <Route
+        path="/account"
+        element={
+          <ProtectedRoute>
+            <Account />
+          </ProtectedRoute>
+        }
+      />
     </ReactDomRoutes>
   );
 };

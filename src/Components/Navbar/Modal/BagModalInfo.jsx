@@ -67,7 +67,7 @@ const CheckOutButton=styled(NavLink)`
   height:5%;
   border-radius:15px;
   border:none;
-  background-color:#e4d8d8;
+  background-color:#f2f2f2;
   color:#4d4d4d;
   font-weight:800;
   text-align:center;

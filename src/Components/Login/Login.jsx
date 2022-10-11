@@ -120,7 +120,11 @@ const Form = styled(FormikForm)`
 const GoogleButton = styled.button`
   padding: 0.6% 3%;
   border-radius: 10px;
+  background-color:#f2f2f2;
   border: 1px solid black;
+  display:flex;
+  justify-content:center;
+  align-items:center;
   cursor: pointer;
   @media (max-width: 768px) {
     width: 40%;

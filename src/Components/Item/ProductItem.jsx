@@ -196,13 +196,14 @@ const Description = styled.p`
   font-size: 1.1rem;
   color: #4d4d4d;
   @media (max-width: 768px) {
-    font-size: 1rem;
+    font-size: .7rem;
   }
 `;
 const AddAndButton = styled.div`
   display: flex;
   width: 90%;
   justify-content: space-between;
+  color:#4d4d4d;
 `;
 const AddAndRest = styled.div`
   width: 40%;

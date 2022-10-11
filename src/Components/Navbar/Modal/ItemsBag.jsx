@@ -85,7 +85,7 @@ const StyledP = styled.p`
   font-weight:800;
 `
 const Button = styled.button`
-  background-color:#e4d8d8;
+  background-color:#f2f2f2;
   border-radius: 15px;
   border: none;
   color: #222120;

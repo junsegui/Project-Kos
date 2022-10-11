@@ -207,15 +207,17 @@ const AddAndButton = styled.div`
 `;
 const AddAndRest = styled.div`
   width: 40%;
-  display: flex;
+  display: flex;  
+  color:#4d4d4d;
 `;
 const But = styled.button`
   width: 33%;
   padding: 5% 5%;
-
+  color:#4d4d4d;
   font-size: 1.1rem;
   border-radius: 100px;
   border: none;
+  text-decoration:none;
   background-color: #c8beb5;
   font-weight: 500;
   cursor: pointer;

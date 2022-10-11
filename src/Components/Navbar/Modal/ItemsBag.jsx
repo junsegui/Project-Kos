@@ -19,7 +19,7 @@ export const ItemsBag = ({img,tittle,price,quantity,id}) => {
         <ButtonsContainer>
         <ButtonsCont>
         <Button onClick={(e) => dispatch(deleteItem(id))}>-</Button>
-        <p>{quantity}</p>
+        <Quantity>{quantity}</Quantity>
         <Button onClick={(e) =>
               dispatch(addItem({ img, price, tittle, quantity, id }))
             }>+</Button>
@@ -34,7 +34,8 @@ const ContainerItem=styled.div`
 width:100%;
 height:60%;
 border-bottom:2px solid #4d4d4d;
-
+padding-bottom:5%;
+padding-top:5%;
 display:flex;
 align-items:center;
 
@@ -90,4 +91,11 @@ const Button = styled.button`
   border: none;
   color: #222120;
   border:1px solid #4d4d4d;
+  padding-left:5%;
+  padding-right:5%;
+  width:50%;
+  height:40%;
 `
+const Quantity = styled.p`
+margin-left:5%;
+margin-right:5%;`

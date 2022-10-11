@@ -11,10 +11,14 @@ import { AnimatePresence } from "framer-motion";
 import { DesktopNavbar } from "./NavbarStyles/DesktopNavbar";
 import kos from "../../assets/Logo/Mi proyecto.png";
 import { Link, NavLink } from "react-router-dom";
+import { togglleVisibleCart } from "../../Redux/Bag/actionBag";
+import { BagModal } from "./Modal/BagModal";
 export const Navbar = () => {
   const { visible } = useSelector((state) => state.modal);
   const dispatch = useDispatch();
-  const { items } = useSelector((state) => state.bag);
+  const { items,visible:bag } = useSelector((state) => state.bag);
+
+
   const totalItems = items.reduce((acc, item) => (acc += item.quantity), 0);
   return (
     <>
@@ -29,8 +33,9 @@ export const Navbar = () => {
         <StyledLogoLink to="/">
           <Logo src={kos} alt="logo" />
         </StyledLogoLink>
-        <StledFontAwesome icon={faBagShopping} color="black" />
+        <StledFontAwesome icon={faBagShopping} color="black" onClick={()=>dispatch(togglleVisibleCart())} />
         <AnimatePresence>{visible && <ModalMenu />}</AnimatePresence>
+        <AnimatePresence>{bag && <BagModal />}</AnimatePresence>
       </Burguer>
       <DesktopNavbar>
         <StyledLink to="/shop">shop</StyledLink>

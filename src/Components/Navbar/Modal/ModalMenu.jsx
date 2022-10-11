@@ -1,5 +1,4 @@
 import React from "react";
-
 import { Closer } from "./Closer";
 import { ContainerModal } from "./ContainerModal";
 import { StyledList } from "./StyledList";

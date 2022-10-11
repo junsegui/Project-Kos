@@ -50,8 +50,11 @@ border-radius:15px;
 `
 const IMG = styled.img`
 height:100%;
-width:80%;
+width:60%;
 border-radius:15px;
+@media (max-width: 500px) {
+  width:80%;
+}
 `
 const DataContainer=styled.div`
   width:60%;

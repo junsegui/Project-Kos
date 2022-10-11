@@ -5,6 +5,7 @@ import { addItem, deleteItem } from "../../Redux/Bag/actionBag";
 export const BagItemCard = ({ img, price, tittle, quantity, id }) => {
   const dispatch = useDispatch();
   return (
+    <>
     <Container>
       <IMG src={img} />
       <DataContainer>
@@ -26,6 +27,7 @@ export const BagItemCard = ({ img, price, tittle, quantity, id }) => {
         <Total>Total: ${price * quantity}</Total>
       </DataContainer>
     </Container>
+    </>
   );
 };
 const Container = styled.div`
@@ -37,6 +39,9 @@ const Container = styled.div`
   margin-bottom: 1%;
   border-radius: 15px;
   margin-right: 1%;
+  @media (max-width:768px) {
+    display:none;
+  }
 `;
 const IMG = styled.img`
   width: 45%;

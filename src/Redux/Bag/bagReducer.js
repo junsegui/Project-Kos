@@ -4,7 +4,7 @@ import { addItemCart, addItemCartB, deleteItemCart } from "./bagUtils";
 const INITIAL_STATE = {
   items: [],
   visible: false,
-  counter:0,
+  counter:1,
 };
 
 export const bagReducer = (state = INITIAL_STATE, action) => {

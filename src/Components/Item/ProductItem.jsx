@@ -238,7 +238,7 @@ const AddToBag = styled.button`
 `;
 const MobileContainer = styled.div`
   width: 100%;
-  height: 85vh;
+  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;

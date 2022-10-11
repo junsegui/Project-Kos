@@ -20,8 +20,8 @@ export const CloseBag = () => {
   );
 };
 const StyledX = styled.p`
-  color: black;
-
+ color:#4d4b4a;
+ font-weight:800;
   font-size: 2rem;
   display: flex;
   justify-content: center;

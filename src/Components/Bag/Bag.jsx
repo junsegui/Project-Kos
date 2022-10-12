@@ -153,6 +153,7 @@ const TotalQuantity = styled.p`
   align-items: center;
   font-size: 1.2rem;
   color: #4d4d4d;
+  text-decoration: none;
 `;
 const Order = styled.button`
   height: 20%;

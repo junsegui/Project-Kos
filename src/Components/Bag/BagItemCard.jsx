@@ -98,6 +98,8 @@ const QuantityContaier = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: #4d4d4d;
+  text-decoration: none;
 `;
 const Total = styled.p`
   font-size: 1.2rem;

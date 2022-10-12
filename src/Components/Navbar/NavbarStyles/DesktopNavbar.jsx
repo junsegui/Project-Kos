@@ -9,6 +9,8 @@ export const DesktopNavbar = styled.div`
   justify-content: space-around;
   align-items: center;
   background-color: #c8beb5;
+  position:fixed;
+  top:0;
 
   @media (max-width: 769px) {
     display: none;

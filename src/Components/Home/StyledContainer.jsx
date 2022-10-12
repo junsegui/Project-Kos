@@ -3,7 +3,7 @@ import { device } from "../../Styles/Medias/MediaQueries";
 
 export const StyledContainer = styled.div`
   width: 100%;
-  height: 80vh;
+  height: 100vh;
   background-image: url("https://images.pexels.com/photos/4207780/pexels-photo-4207780.jpeg");
   display: flex;
   justify-content: center;

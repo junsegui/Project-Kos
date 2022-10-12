@@ -1,11 +1,10 @@
 import styled from "styled-components";
 import { device } from "../../Styles/Medias/MediaQueries";
-import background from "../../assets/Jarrones/jarronMain.jpg";
 
 export const StyledContainer = styled.div`
   width: 100%;
   height: 80vh;
-  background-image: url(${background});
+  background-image: url("https://images.pexels.com/photos/4207780/pexels-photo-4207780.jpeg");
   display: flex;
   justify-content: center;
   align-items: center;

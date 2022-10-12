@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import ourStory from "../../assets/Jarrones/OurStory.jpg";
+
 import { device } from "../../Styles/Medias/MediaQueries";
 export const OurStory = () => {
   return (
@@ -10,7 +10,7 @@ export const OurStory = () => {
         <Centrador>
           <InnerCont>
             <Half1>
-              <Img src={ourStory} />
+              <Img src="https://qodeinteractive.com/qi-addons-for-elementor/wp-content/uploads/2021/02/blockquote-img-1.jpg" />
             </Half1>
             <Half2>
               <P>
@@ -131,7 +131,7 @@ const MobileCont = styled.div`
 const ImageAbout = styled(NavLink)`
   width: 70%;
   height: 70%;
-  background-image: url(${ourStory});
+  background-image: url("https://qodeinteractive.com/qi-addons-for-elementor/wp-content/uploads/2021/02/blockquote-img-1.jpg");
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: 95%;

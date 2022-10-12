@@ -196,28 +196,28 @@ const Description = styled.p`
   font-size: 1.1rem;
   color: #4d4d4d;
   @media (max-width: 768px) {
-    font-size: .7rem;
+    font-size: 0.7rem;
   }
 `;
 const AddAndButton = styled.div`
   display: flex;
   width: 90%;
   justify-content: space-between;
-  color:#4d4d4d;
+  color: #4d4d4d;
 `;
 const AddAndRest = styled.div`
   width: 40%;
-  display: flex;  
-  color:#4d4d4d;
+  display: flex;
+  color: #4d4d4d;
 `;
 const But = styled.button`
   width: 33%;
   padding: 5% 5%;
-  color:#4d4d4d;
+  color: #4d4d4d;
   font-size: 1.1rem;
   border-radius: 100px;
   border: none;
-  text-decoration:none;
+  text-decoration: none;
   background-color: #c8beb5;
   font-weight: 500;
   cursor: pointer;

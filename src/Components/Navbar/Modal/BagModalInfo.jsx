@@ -17,7 +17,7 @@ const dispatch = useDispatch()
     <Container>
         <StyledP>bag</StyledP>
         <ItemContainer>
-          {items.map((i)=><ItemsBag key={i.id} {...i}/>)}
+          {<p>empty car</p> && items.map((i)=><ItemsBag key={i.id} {...i}/>)}
         </ItemContainer>
         <SubtotalContainer>
           <p>subtotal</p> 

@@ -3,70 +3,41 @@ import { faPaperPlane, faPhoneAlt } from "@fortawesome/free-solid-svg-icons";
 import { faInstagram, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import React from "react";
 import styled from "styled-components";
+import logo from "../../assets/Logo/Mi proyecto.png"
 
 export const Contact = () => {
   return (
     <>
       <Container>
         <WidthContainer>
-          <ContactUs>contact us</ContactUs>
+          <ContactUs>our story</ContactUs>
           <TextContainer>
             <Paragraph>
-              contact us if you are a wholesaler and want to be part of the
-              unique kos experience.
+              it all started with a name. The norweigan word "kos" can be described as nice, cozy or having a relaxedtime. It´s connected to the calm and thoughful process of creating pottery.
+
+              The visual identity is inspired by nature, it´s earthy color tones and simple shapes. we wanted the visual identity to be effortless, fresh and modern, like the ceramic pieces
             </Paragraph>
             <ContactContainer>
-              <UL>
-                <LI>
-                  <Icon icon={faPhoneAlt} />
-                  +54 3487 282015
-                </LI>
-                <LI>
-                  <Icon icon={faInstagram} />
-                  @kos
-                </LI>
-                <LI>
-                  <Icon icon={faTwitter} />
-                  @kos
-                </LI>
-                <LI>
-                  <Icon icon={faPaperPlane} />
-                  kos@gmail.com
-                </LI>
-              </UL>
+              <img src={logo} alt="" />
             </ContactContainer>
           </TextContainer>
+                    
+        
         </WidthContainer>
       </Container>
       <MobileContainer>
         <WidthContainer>
-          <ContactUs>contact us</ContactUs>
+          <ContactUs>our story</ContactUs>
           <ContainerM>
             <HalfContainer>
               <Paragraph>
-                contact us if you are a wholesaler and want to be part of the
-                unique kos experience.
+              it all started with a name. The norweigan word "kos" can be described as nice, cozy or having a relaxedtime. It´s connected to the calm and thoughful process of creating pottery.
+
+              The visual identity is inspired by nature, it´s earthy color tones and simple shapes. we wanted the visual identity to be effortless, fresh and modern, like the ceramic pieces
               </Paragraph>
             </HalfContainer>
             <HalfContainer>
-              <UL>
-                <LI>
-                  <Icon icon={faPhoneAlt} />
-                  +54 3487 282015
-                </LI>
-                <LI>
-                  <Icon icon={faInstagram} />
-                  @kos
-                </LI>
-                <LI>
-                  <Icon icon={faTwitter} />
-                  @kos
-                </LI>
-                <LI>
-                  <Icon icon={faPaperPlane} />
-                  kos@gmail.com
-                </LI>
-              </UL>
+              <img src={logo}/>
             </HalfContainer>
           </ContainerM>
         </WidthContainer>
@@ -81,6 +52,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom:3%;
   @media (max-width: 769px) {
     display: none;
   }
@@ -90,13 +62,15 @@ const WidthContainer = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
+  
 `;
 const ContactUs = styled.p`
   font-size: 2rem;
   font-weight: 700;
   color: #4d4b4a;
   @media (max-width: 768px) {
-    margin-top: 10%;
+margin:0;
+margin-top:5%;
     font-size: 1.8rem;
   }
 `;
@@ -105,19 +79,20 @@ const TextContainer = styled.div`
   height: 100%;
   display: flex;
   justify-content: center;
+  flex-direction:row;
 `;
 const Paragraph = styled.p`
   width: 40%;
   height: 100%;
-  text-align: center;
-  font-size: 1.8rem;
+  text-align: left;
+  font-size: 1.5rem;
   justify-content: center;
-  margin: 5%;
+  margin:0;
   color: #4d4d4d;
   font-family: 500;
   @media (max-width: 768px) {
     margin-top: 10%;
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     height: 100%;
     width: 100%;
     display: flex;
@@ -129,6 +104,13 @@ const Paragraph = styled.p`
 const ContactContainer = styled.div`
   width: 60%;
   height: 100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  img{
+    width:80%;
+    height:80%;
+  }
 `;
 const UL = styled.ul`
   height: 100%;
@@ -164,7 +146,7 @@ const Icon = styled(FontAwesomeIcon)`
 `;
 const MobileContainer = styled.div`
   width: 100%;
-  height: 60vh;
+  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -177,12 +159,13 @@ const ContainerM = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 `;
 const HalfContainer = styled.div`
-  width: 50%;
+  width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  img{width:80%}
 `;

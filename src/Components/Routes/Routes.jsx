@@ -18,7 +18,7 @@ export const Routes = () => {
     <ReactDomRoutes>
       <Route path="/" element={<Home />} />
       <Route path="/shop" element={<Shop />} />
-      <Route path="/contact" element={<Contact />} />
+      <Route path="/ourstory" element={<Contact />} />
       <Route path="/login" element={<Login />} />
       <Route path="/bag" element={<Bag />} />
       <Route path="/shop/:id" element={<ProductItem />} />

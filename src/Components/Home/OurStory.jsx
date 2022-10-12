@@ -17,14 +17,15 @@ export const OurStory = () => {
                 what started as a hobby and a way to pass time, evolved into a
                 real passion.
               </P>
-              <Link>our story</Link>
+              <Link to="/ourstory">our story</Link>
+
             </Half2>
           </InnerCont>
         </Centrador>
       </Cont>
       <MobileCont>
-        <ImageAbout to="/contact">
-          <p>hola</p>
+        <ImageAbout to="/ourstory">
+          <p>our story</p>
         </ImageAbout>
       </MobileCont>
     </>
@@ -100,15 +101,16 @@ const P = styled.p`
   }
 `;
 
-const Link = styled.p`
+const Link = styled(NavLink)`
   color: #4d4b4a;
   border-bottom: 2px solid #4d4b4a;
-
+  text-decoration:none;
   font-weight: 700;
   cursor: pointer;
   display: flex;
   justify-content: left;
-  width: 50%;
+
+  margin-top:1%;
 
   @media ${device.tablet} {
     font-size: 1.2rem;
@@ -137,10 +139,12 @@ const ImageAbout = styled(NavLink)`
   background-size: 95%;
   display: flex;
   justify-content: center;
-  border-radius: 10px;
+  border-radius: 20px;
   align-items: center;
   text-decoration: none;
-
+  p{
+    color:#4d4d4d;
+  }
   @media ${device.tablet} {
     background-position: 50% 60%;
   }

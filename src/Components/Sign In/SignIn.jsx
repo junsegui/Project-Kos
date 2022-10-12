@@ -28,6 +28,7 @@ export const SignIn = () => {
           try {
             const response = await registerUser(email, password);
             resetForm();
+            navigate("/login")
           } catch (error) {
             if (error === ERROR_CODES.EMAIL_IN_USE) {
               alert("email already used try another one please");
@@ -100,21 +101,27 @@ export const SignIn = () => {
 };
 const Container = styled.div`
   width: 100%;
-  height: 80vh;
+  height: auto;
   display: flex;
   align-items: center;
   flex-direction: column;
+  justify-content:center;
+  margin-bottom:5%;
 `;
 const Formik = styled(FormikContainer)`
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
+  align-items:center;
+  margin-top:5%;
+  margin-bottom:5%;
 `;
 const Form = styled(FormikForm)`
-  width: 90%;
+  width: auto;
   height: auto;
   display: flex;
+
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -128,6 +135,9 @@ const Sign_In = styled.p`
   color: #4d4b4a;
   font-weight: 800;
   text-align: center;
+  @media (max-width:508px) {
+    font-size:1.5rem;
+  }
 `;
 const ButtonContainer = styled.div`
   width: 100%;
@@ -136,5 +146,14 @@ const ButtonContainer = styled.div`
   align-items: center;
 `;
 const Button = styled.button`
-  padding: 5%;
+  padding: 1% 2%;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 1.3rem;
+  color: #413d3c;
+  background-color: #c8beb5;
+  @media (max-width: 768px) {
+    width: 40%;
+  }
 `;

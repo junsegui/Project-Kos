@@ -8,6 +8,7 @@ import {
   faTwitter,
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
+import { NavLink } from "react-router-dom";
 
 export const Footer = () => {
   return (
@@ -22,7 +23,13 @@ export const Footer = () => {
         </Brands>
       </MobileContainer>
       <DesktopContainer>
-        <Line />
+        <Line/>
+        <UL>
+          <Link to="/shop">shop</Link>
+          <Link to="/ourstory">our story</Link>
+          <Link to="/account">account</Link>
+          <Link to="/bag">bag</Link>
+        </UL>
       </DesktopContainer>
     </>
   );
@@ -30,7 +37,7 @@ export const Footer = () => {
 
 const MobileContainer = styled.div`
   width: 100%;
-  height: 100%;
+  height: auto;;
   justify-content: center;
   display: flex;
   flex-direction: column;
@@ -44,6 +51,10 @@ const Line = styled.div`
   height: 10%;
   border-top: 3px solid #4d4b4a;
   margin-bottom: 5%;
+  margin-left:10%;
+  @media (max-width:768px) {
+    margin-left:0;
+  }
 `;
 const Brands = styled.div`
   width: 80%;
@@ -55,11 +66,28 @@ const Brands = styled.div`
 
 const DesktopContainer = styled.div`
   width: 100%;
-  height: 30vh;
+  height: auto;
   display: flex;
-  justify-content: center;
+  flex-direction:column;
 
   @media (max-width: 769px) {
     display: none;
   }
 `;
+const UL = styled.ul`
+width:20%;
+height:auto;
+list-style:none;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+margin-left:10%;
+
+`
+const Link=styled(NavLink)`
+  font-size:1.2rem;
+  color:#4d4d4d;
+  text-decoration:none;
+  margin-bottom:5%;
+  font-weight:800;
+`

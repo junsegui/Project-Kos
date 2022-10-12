@@ -39,7 +39,7 @@ export const Navbar = () => {
       </Burguer>
       <DesktopNavbar>
         <StyledLink to="/shop">shop</StyledLink>
-        <StyledLink to="/contact">our story</StyledLink>
+        <StyledLink to="/ourstory">our story</StyledLink>
         <StyledLogoLink to="/">
           <Logo src={kos} alt="logo" />
         </StyledLogoLink>

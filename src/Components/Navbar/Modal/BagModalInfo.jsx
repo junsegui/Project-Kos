@@ -17,7 +17,7 @@ const dispatch = useDispatch()
     <Container>
         <StyledP>bag</StyledP>
         <ItemContainer>
-          {<p>empty car</p> && items.map((i)=><ItemsBag key={i.id} {...i}/>)}
+          {items.length ? items.map((i)=><ItemsBag key={i.id} {...i}/>): <Empty>empty bag</Empty>}
         </ItemContainer>
         <SubtotalContainer>
           <p>subtotal</p> 
@@ -75,4 +75,12 @@ const CheckOutButton=styled(NavLink)`
   display:flex;
   align-items:center;
   text-decoration:none;
+`
+const Empty = styled.p`
+  color:#4d4d4d;
+  font-size:1.2rem;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 `

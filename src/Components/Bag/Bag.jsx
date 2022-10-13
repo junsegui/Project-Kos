@@ -23,9 +23,9 @@ export const Bag = () => {
           <YourOrder>your order</YourOrder>
           <CC>
             <BagItemContainer>
-              {items.map((i) => (
-                <BagItemCard key={i.id} {...i} />
-              ))}
+            {items.length ? items.map((i) => (
+              <BagItemCard key={i.id} {...i} />
+            )): <Empty>empty bag </Empty>}
             </BagItemContainer>
             <DataItemContianer>
               <DataItems />
@@ -37,9 +37,9 @@ export const Bag = () => {
         <YourOrder>you order</YourOrder>
         <WidthContainer>
           <MobileItemsContainer>
-            {items.map((i) => (
+            {items.length ? items.map((i) => (
               <BagItemCard key={i.id} {...i} />
-            ))}
+            )): <Empty>empty bag </Empty>}
           </MobileItemsContainer>
         </WidthContainer>
         <TotalQuantityContainer>
@@ -163,3 +163,16 @@ const Order = styled.button`
   color: #4d4d4d;
   font-weight: 800;
 `;
+const Empty = styled.p`
+  height:100%;
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:#4d4d4d;
+  font-size:1.2rem;
+  @media (max-width: 768px) {
+width:35%;
+height:75%;
+  }
+`

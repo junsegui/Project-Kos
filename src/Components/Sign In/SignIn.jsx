@@ -8,14 +8,15 @@ import { registerUser } from "../../Firebase/fireBaseUtils";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
+import { useRedirect } from "../../assets/Hooks/useRedirect";
 
 export const SignIn = () => {
   const ERROR_CODES = {
     EMAIL_IN_USE: "auth/emaill-already-in-use",
   };
-    const navigate = useNavigate()
-    const {user} =useSelector(state=>state.login)
  
+    const {user} =useSelector(state=>state.login)
+    useRedirect("/")
   return (
 
     <Container>
@@ -28,7 +29,7 @@ export const SignIn = () => {
           try {
             const response = await registerUser(email, password);
             resetForm();
-            navigate("/login")
+
           } catch (error) {
             if (error === ERROR_CODES.EMAIL_IN_USE) {
               alert("email already used try another one please");

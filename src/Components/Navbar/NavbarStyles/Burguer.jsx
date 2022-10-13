@@ -9,8 +9,7 @@ export const Burguer = styled.nav`
   justify-content: space-around;
   align-items: center;
   background-color: #c8beb5;
-  position:fixed;
-  top:0;
+
 
   @media (min-width: 770px) {
     display: none;

@@ -12,10 +12,14 @@ import { Account } from "../Account/Account";
 import { Shop } from "../Shop/Shop";
 import { SignIn } from "../Sign In/SignIn";
 import { ProtectedRoute } from "./ProtectedRoute";
+import ScrollToTop from "./ScrollToTop";
 
 export const Routes = () => {
   return (
     <ReactDomRoutes>
+
+
+
       <Route path="/" element={<Home />} />
       <Route path="/shop" element={<Shop />} />
       <Route path="/ourstory" element={<Contact />} />
@@ -31,6 +35,7 @@ export const Routes = () => {
           </ProtectedRoute>
         }
       />
+       
     </ReactDomRoutes>
   );
 };

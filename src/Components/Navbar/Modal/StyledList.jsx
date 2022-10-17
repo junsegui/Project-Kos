@@ -14,7 +14,7 @@ export const StyledList = () => {
       <StyledNavLink to="/shop"  onClick={() => {
           dispatch(toggleModal());
         }}>Shop</StyledNavLink>
-      <StyledNavLink to="/contact"  onClick={() => {
+      <StyledNavLink to="/ourstory"  onClick={() => {
           dispatch(toggleModal());
         }}>contact</StyledNavLink>
       <StyledNavLink to="/account"  onClick={() => {

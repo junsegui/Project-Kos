@@ -1,151 +1,101 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-import { device } from "../../Styles/Medias/MediaQueries";
+import atelier from "../../assets/Decoration/alce.jpg";
+
 export const OurStory = () => {
   return (
-    <>
-      <Cont>
-        <Centrador>
-          <InnerCont>
-            <Half1>
-              <Img src="https://qodeinteractive.com/qi-addons-for-elementor/wp-content/uploads/2021/02/blockquote-img-1.jpg" />
-            </Half1>
-            <Half2>
-              <P>
-                what started as a hobby and a way to pass time, evolved into a
-                real passion.
-              </P>
-              <Link to="/ourstory">our story</Link>
-
-            </Half2>
-          </InnerCont>
-        </Centrador>
-      </Cont>
-      <MobileCont>
-        <ImageAbout to="/ourstory">
-          <p>our story</p>
-        </ImageAbout>
-      </MobileCont>
-    </>
+    <Section>
+      <ImageWrapper>
+        <StoryImage src={atelier} alt="Atelier workspace" />
+      </ImageWrapper>
+      <Content>
+        <Eyebrow>behind the wheel</Eyebrow>
+        <Title>Our story</Title>
+        <Description>
+          What began as a weekend ritual soon became a full-time exploration of
+          tactility. Every vessel is thrown, glazed, and finished by hand in our
+          sunlit studio overlooking Buenos Aires.
+        </Description>
+        <StoryLink to="/ourstory">read the full story</StoryLink>
+      </Content>
+    </Section>
   );
 };
-const InnerCont = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
+
+const Section = styled.section`
+  margin: clamp(3rem, 8vw, 6rem) 5vw clamp(4rem, 10vw, 8rem);
+  display: grid;
+  gap: clamp(2rem, 5vw, 4rem);
   align-items: center;
-`;
-const Cont = styled.div`
-  width: 100%;
-  height: 50vh;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 5%;
-  @media (max-width: 768px) {
-    display: none;
-  }
-`;
-const Centrador = styled.div`
-  width: 80%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-const Half1 = styled.div`
-  width: 50%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-const Img = styled.img`
-  width: 80%;
-  height: 50%;
-  border-radius: 15px;
-  @media ${device.tablet} {
-    width: 80%;
-    height: 70%;
-  }
-  @media ${device.laptop} {
-    width: 80%;
-    height: 100%;
+
+  @media (min-width: 900px) {
+    grid-template-columns: 1.05fr 1fr;
   }
 `;
 
-const Half2 = styled.div`
-  width: 50%;
-  height: 100%;
-  display: flex;
-  background-color: #f2f2f2;
-  flex-direction: column;
-  justify-content: center;
+const ImageWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  padding-top: 70%;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 25px 45px rgba(15, 23, 42, 0.15);
+
+  @media (min-width: 900px) {
+    padding-top: 100%;
+  }
 `;
-const P = styled.p`
-  color: #4d4b4a;
-  text-align: left;
+
+const StoryImage = styled.img`
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`;
+
+const Content = styled.div`
+  max-width: 520px;
+  display: grid;
+  gap: 1rem;
+`;
+
+const Eyebrow = styled.span`
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-size: 0.72rem;
   font-weight: 600;
-  width: 100%;
-  font-size: 1.1rem;
-  margin-bottom: 0;
-
-  @media ${device.tablet} {
-    font-size: 1.2rem;
-  }
-  @media (min-width: 770px) {
-    font-size: 1.8rem;
-    width: 50%;
-  }
+  color: #9f8f7a;
 `;
 
-const Link = styled(NavLink)`
-  color: #4d4b4a;
-  border-bottom: 2px solid #4d4b4a;
-  text-decoration:none;
-  font-weight: 700;
-  cursor: pointer;
-  display: flex;
-  justify-content: left;
-
-  margin-top:1%;
-
-  @media ${device.tablet} {
-    font-size: 1.2rem;
-  }
-  @media (min-width: 770px) {
-    font-size: 1.5rem;
-    width: 25%;
-  }
+const Title = styled.h2`
+  margin: 0;
+  font-size: clamp(2.1rem, 4vw, 2.8rem);
+  font-weight: 600;
+  color: #1f1f1f;
 `;
-const MobileCont = styled.div`
-  width: 100%;
-  height: 35vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  @media (min-width: 771px) {
-    display: none;
-  }
+
+const Description = styled.p`
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #6f6f6f;
 `;
-const ImageAbout = styled(NavLink)`
-  width: 70%;
-  height: 70%;
-  background-image: url("https://qodeinteractive.com/qi-addons-for-elementor/wp-content/uploads/2021/02/blockquote-img-1.jpg");
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  background-size: 95%;
-  display: flex;
-  justify-content: center;
-  border-radius: 20px;
-  align-items: center;
+
+const StoryLink = styled(Link)`
+  font-size: 0.9rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #1f1f1f;
   text-decoration: none;
-  p{
-    color:#4d4d4d;
-  }
-  @media ${device.tablet} {
-    background-position: 50% 60%;
+  width: fit-content;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid currentColor;
+  transition: opacity 200ms ease;
+
+  &:hover {
+    opacity: 0.6;
   }
 `;

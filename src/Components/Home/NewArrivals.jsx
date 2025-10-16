@@ -25,14 +25,25 @@ export const NewArrivals = () => {
 };
 
 const Section = styled.section`
-  margin: clamp(3rem, 8vw, 6rem) 5vw;
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(248, 246, 243, 0.9));
-  border-radius: 32px;
-  padding: clamp(2.5rem, 7vw, 4.5rem);
-  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
+  position: relative;
+  margin: clamp(3rem, 8vw, 6rem) clamp(1.75rem, 6vw, 5rem);
+  background: linear-gradient(140deg, rgba(255, 255, 255, 0.95), rgba(245, 242, 237, 0.82));
+  border-radius: 36px;
+  padding: clamp(2.75rem, 7vw, 4.75rem);
+  box-shadow: 0 30px 60px rgba(31, 31, 31, 0.12);
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 12% 12%, rgba(159, 143, 122, 0.18), transparent 55%);
+    pointer-events: none;
+  }
 `;
 
 const Header = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -63,22 +74,50 @@ const Title = styled.h2`
 `;
 
 const BrowseLink = styled(Link)`
+  position: relative;
   align-self: flex-start;
-  font-size: 0.95rem;
-  letter-spacing: 0.08em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: #1f1f1f;
-  padding-bottom: 0.35rem;
-  border-bottom: 1px solid currentColor;
+  padding: 0.8rem 1.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(31, 31, 31, 0.12);
   text-decoration: none;
-  transition: opacity 200ms ease;
+  background: rgba(255, 255, 255, 0.65);
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+
+  &::after {
+    content: "";
+    width: 0.65rem;
+    height: 0.65rem;
+    border-top: 1px solid currentColor;
+    border-right: 1px solid currentColor;
+    transform: rotate(45deg);
+    transition: transform 200ms ease;
+  }
 
   &:hover {
-    opacity: 0.6;
+    transform: translateY(-3px);
+    border-color: rgba(31, 31, 31, 0.28);
+    box-shadow: 0 16px 28px rgba(31, 31, 31, 0.12);
+  }
+
+  &:hover::after {
+    transform: translateX(4px) rotate(45deg);
+  }
+
+  &:focus-visible {
+    outline: 2px solid rgba(31, 31, 31, 0.55);
+    outline-offset: 3px;
   }
 `;
 
 const Grid = styled.div`
+  position: relative;
   display: grid;
   gap: clamp(1.5rem, 3vw, 2.5rem);
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));

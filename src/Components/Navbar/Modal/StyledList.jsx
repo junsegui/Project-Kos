@@ -16,10 +16,13 @@ export const StyledList = () => {
         }}>Shop</StyledNavLink>
       <StyledNavLink to="/ourstory"  onClick={() => {
           dispatch(toggleModal());
-        }}>contact</StyledNavLink>
+        }}>Our Story</StyledNavLink>
+      <StyledNavLink to="/contact"  onClick={() => {
+          dispatch(toggleModal());
+        }}>Contact</StyledNavLink>
       <StyledNavLink to="/account"  onClick={() => {
           dispatch(toggleModal());
-        }}>account</StyledNavLink>
+        }}>Account</StyledNavLink>
     </Ul>
   );
 };

@@ -22,9 +22,9 @@ const highlights = [
 ];
 
 const stats = [
-  { label: "years crafting", value: "08" },
-  { label: "unique pieces", value: "350+" },
-  { label: "local partners", value: "24" },
+  { label: "Years crafting", value: "08" },
+  { label: "Unique pieces", value: "350+" },
+  { label: "Local partners", value: "24" },
 ];
 
 export const Home = () => {
@@ -177,6 +177,9 @@ const HeroLayout = styled.div`
   z-index: 1;
   display: grid;
   gap: clamp(2.5rem, 6vw, 4.5rem);
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
 
   @media (min-width: 1024px) {
     grid-template-columns: minmax(0, 1fr) minmax(260px, 420px);
@@ -314,6 +317,8 @@ const StatLabel = styled.span`
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: rgba(31, 31, 31, 0.55);
+  line-height: 1.4;
+  word-break: break-word;
 `;
 
 const HighlightsSection = styled.section`

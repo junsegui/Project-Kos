@@ -66,9 +66,9 @@ export const Navbar = () => {
 
 const NavContent = styled.div`
   width: min(1180px, 100%);
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: clamp(1rem, 3vw, 2.5rem);
 `;
 
@@ -77,12 +77,14 @@ const NavGroup = styled.div`
   align-items: center;
   justify-content: ${({ $align = "center" }) => $align};
   gap: clamp(1.25rem, 3vw, 2.75rem);
+  flex-wrap: nowrap;
 `;
 
 const StyledLink = styled(NavLink)`
   position: relative;
   display: inline-flex;
   align-items: center;
+  white-space: nowrap;
   font-size: 1rem;
   font-weight: 600;
   letter-spacing: 0.08em;
